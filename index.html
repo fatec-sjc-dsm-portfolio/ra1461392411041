@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio de João Vítor Góes Gomes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2e7d32;
-            --primary-light: #60ad5e;
-            --primary-dark: #005005;
-            --text-light: #f5f5f5;
-            --text-dark: #333;
+            --primary-color: #2b8a3e;
+            --primary-light: #51cf66;
+            --primary-dark: #18621f;
+            --text-light: #fdfdfd;
+            --text-dark: #2d3436;
             --bg-light: #f8f9fa;
-            --bg-dark: #263238;
+            --bg-dark: #212529;
+            --card-bg: #ffffff;
             --transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
         }
 
@@ -21,13 +23,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
@@ -48,7 +54,7 @@
             align-items: center;
             max-width: 1200px;
             width: 100%;
-            gap: 3rem;
+            gap: 4rem;
             z-index: 2;
         }
 
@@ -57,17 +63,17 @@
             height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: float 6s ease-in-out infinite;
+            border: 6px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             opacity: 0;
-            animation: fadeInScale 1s ease-out forwards 0.2s;
+            animation: fadeInScale 1s ease-out forwards 0.2s, float 6s ease-in-out infinite 1.2s;
             transition: var(--transition);
         }
 
         .profile-photo:hover {
             border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            transform: scale(1.02);
         }
 
         .profile-text {
@@ -75,67 +81,61 @@
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            line-height: 1.2;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-            animation-delay: 0.3s;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 0.3s;
         }
 
         .terminal-text {
             position: relative;
             display: inline-block;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
+            font-weight: 500;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-            animation-delay: 0.5s;
-            min-height: 2rem;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 0.5s;
+            min-height: 2.4rem;
         }
         
         .terminal-text::after {
             content: '|';
             position: absolute;
-            right: -8px;
+            right: -10px;
             animation: blink 0.7s infinite;
             color: var(--primary-light);
         }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
 
         header p {
-            font-size: 1.3rem;
-            max-width: 600px;
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 650px;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-            animation-delay: 0.7s;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 0.7s;
         }
 
         .header-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.08;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff"><circle cx="25" cy="25" r="3"/><circle cx="75" cy="75" r="3"/><circle cx="75" cy="25" r="3"/><circle cx="25" cy="75" r="3"/></svg>');
             background-size: 50px;
         }
 
         nav {
-            background-color: var(--primary-color);
+            background-color: rgba(43, 138, 62, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transform: translateY(-100%);
             animation: slideDown 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 1s;
         }
@@ -146,37 +146,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
         }
 
         .logo {
             color: var(--text-light);
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1.5rem;
             text-decoration: none;
+            letter-spacing: 1px;
             transition: var(--transition);
         }
 
-        .logo:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
+        .nav-menu-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
+            align-items: center;
+            gap: 2rem;
         }
 
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
             transition: var(--transition);
             position: relative;
         }
@@ -184,28 +184,58 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
+            bottom: 0; left: 50%;
+            width: 0; height: 2px;
             background-color: var(--text-light);
             transition: var(--transition);
             transform: translateX(-50%);
+            border-radius: 2px;
         }
 
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .nav-links a:hover::after { width: 100%; }
+
+        .lang-switch {
+            display: flex;
+            background: rgba(0, 0, 0, 0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 4px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
+            transition: var(--transition);
         }
 
-        .nav-links a:hover::after {
-            width: 80%;
+        .lang-switch:hover {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .lang-switch button {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 5px 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-switch button.active {
+            background: #ffffff;
+            color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .hamburger {
             display: none;
             cursor: pointer;
             color: var(--text-light);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
             transition: var(--transition);
         }
 
@@ -214,443 +244,297 @@
         }
 
         section {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUpSection 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
-
-        section:nth-child(1) { animation-delay: 1.2s; }
-        section:nth-child(2) { animation-delay: 1.4s; }
-        section:nth-child(3) { animation-delay: 1.6s; }
+        
+        section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             color: var(--primary-dark);
+            font-size: 2.2rem;
             position: relative;
-            transition: var(--transition);
-        }
-
-        .section-title:hover {
-            color: var(--primary-color);
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
+            width: 60px;
             height: 4px;
             background-color: var(--primary-color);
             margin: 1rem auto 0;
-            border-radius: 2px;
+            border-radius: 4px;
             transform: scaleX(0);
-            transform-origin: center;
-            animation: scaleIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 0.5s;
-            transition: var(--transition);
+            transition: transform 0.6s ease;
         }
-
-        .section-title:hover::after {
-            background-color: var(--primary-dark);
-            width: 100px;
-        }
+        
+        section.animate .section-title::after { transform: scaleX(1); }
 
         .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
         .project-card {
-            background-color: white;
-            border-radius: 8px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUpCard 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
         }
-
-        .project-card:nth-child(1) { animation-delay: 1.4s; }
-        .project-card:nth-child(2) { animation-delay: 1.6s; }
-        .project-card:nth-child(3) { animation-delay: 1.8s; }
-        .project-card:nth-child(4) { animation-delay: 2.0s; }
+        
+        .project-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .project-card:hover {
             transform: translateY(-10px) !important;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
 
         .project-header {
             background-color: var(--primary-color);
             color: var(--text-light);
-            padding: 1rem;
+            padding: 1.5rem;
             transition: var(--transition);
         }
 
-        .project-card:hover .project-header {
-            background-color: var(--primary-dark);
-        }
+        .project-card:hover .project-header { background-color: var(--primary-dark); }
 
         .project-header h3 {
-            margin-bottom: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-header h3 {
-            transform: translateX(5px);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
         }
 
         .project-period {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 300;
             opacity: 0.9;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-period {
-            opacity: 1;
-            transform: translateX(5px);
         }
 
         .project-body {
-            padding: 1.5rem;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1; 
         }
 
         .project-description {
             margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 0.95rem;
         }
 
         .project-link {
             display: inline-flex;
             align-items: center;
-            margin-top: 1rem;
             color: var(--primary-color);
-            font-weight: bold;
+            font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            align-self: flex-start;
         }
 
         .project-link:hover {
             color: var(--primary-dark);
-            transform: translateX(5px);
+            gap: 5px; 
         }
+        
+        .project-link i { margin-left: 0.5rem; }
 
-        .project-link i {
-            margin-left: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .project-link:hover i {
-            transform: translateX(3px);
-        }
-
-        .technologies {
-            margin: 1.5rem 0;
+        .technologies, .contributions { margin-bottom: 1.5rem; }
+        
+        .soft-skills {
+            margin-top: auto; 
         }
 
         .tech-title, .contrib-title, .skills-title {
-            font-weight: bold;
+            font-weight: 600;
             color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-            transition: var(--transition);
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
         }
 
-        .project-card:hover .tech-title,
-        .project-card:hover .contrib-title,
-        .project-card:hover .skills-title {
+        .contributions p, .soft-skills p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.4rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .contributions p::before, .soft-skills p::before {
+            content: '•';
             color: var(--primary-color);
-            transform: translateX(3px);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
         .tech-tags, .skills-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         .tech-tag, .skill-tag {
-            background-color: var(--primary-light);
-            color: white;
-            padding: 0.3rem 0.8rem;
+            background-color: rgba(81, 207, 102, 0.15);
+            color: var(--primary-dark);
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 500;
             transform: scale(0);
-            animation: scaleIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
             transition: var(--transition);
+            border: 1px solid rgba(81, 207, 102, 0.3);
         }
-
+        
+        .tech-tag.animate, .skill-tag.animate { transform: scale(1); }
+        
         .tech-tag:hover, .skill-tag:hover {
-            background-color: var(--primary-dark);
+            background-color: var(--primary-color);
+            color: white;
             transform: scale(1.05) !important;
         }
 
-        .tech-tag:nth-child(1) { animation-delay: 1.6s; }
-        .tech-tag:nth-child(2) { animation-delay: 1.7s; }
-        .tech-tag:nth-child(3) { animation-delay: 1.8s; }
-        .tech-tag:nth-child(4) { animation-delay: 1.9s; }
-        .skill-tag:nth-child(1) { animation-delay: 1.8s; }
-        .skill-tag:nth-child(2) { animation-delay: 1.9s; }
-        .skill-tag:nth-child(3) { animation-delay: 2.0s; }
-
         .knowledge-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
         }
 
         .knowledge-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
             transition: var(--transition);
             opacity: 0;
-            transform: translateY(20px) rotate(3deg);
-            animation: fadeInUpRotate 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            transform: translateY(20px) rotate(2deg);
+        }
+        
+        .knowledge-card.animate {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
         }
 
         .knowledge-card:hover {
-            transform: translateY(-5px) rotate(0deg) !important;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
         }
-
-        .knowledge-card:nth-child(1) { animation-delay: 1.6s; }
-        .knowledge-card:nth-child(2) { animation-delay: 1.7s; }
-        .knowledge-card:nth-child(3) { animation-delay: 1.8s; }
-        .knowledge-card:nth-child(4) { animation-delay: 1.9s; }
-        .knowledge-card:nth-child(5) { animation-delay: 2.0s; }
-        .knowledge-card:nth-child(6) { animation-delay: 2.1s; }
 
         .knowledge-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            color: var(--primary-light);
+            margin-bottom: 1.2rem;
             transition: var(--transition);
         }
-
+        
         .knowledge-card:hover .knowledge-icon {
             transform: scale(1.1);
-            color: var(--primary-dark);
-        }
-
-        .knowledge-card h3 {
-            transition: var(--transition);
-        }
-
-        .knowledge-card:hover h3 {
             color: var(--primary-color);
+        }
+        
+        .knowledge-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .contacts-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 2.5rem;
         }
 
         .contact-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-color);
-            color: var(--text-light);
+            width: 65px;
+            height: 65px;
+            background-color: var(--card-bg);
+            color: var(--primary-color);
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             transition: var(--transition);
             text-decoration: none;
             opacity: 0;
             transform: scale(0);
-            animation: scaleIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
-
-        .contact-link:nth-child(1) { animation-delay: 1.8s; }
-        .contact-link:nth-child(2) { animation-delay: 1.9s; }
-
+        
+        .contact-link.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
         .contact-link:hover {
-            background-color: var(--primary-dark);
-            transform: scale(1.1) !important;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            transform: scale(1.1) translateY(-5px) !important;
+            box-shadow: 0 10px 25px rgba(43, 138, 62, 0.4);
         }
 
         footer {
-            background-color: var(--primary-dark);
-            color: var(--text-light);
+            background-color: var(--bg-dark);
+            color: #aaa;
             text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
+            padding: 2.5rem;
+            font-size: 0.9rem;
             opacity: 0;
-            animation: fadeIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 2s;
+            animation: fadeIn 1s ease forwards 2s;
         }
 
-        footer p {
-            transition: var(--transition);
-        }
-
-        footer:hover p {
-            letter-spacing: 0.5px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUpSection {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUpCard {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUpRotate {
-            from {
-                opacity: 0;
-                transform: translateY(20px) rotate(3deg);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) rotate(0deg);
-            }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         @media (max-width: 992px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .profile-photo {
-                width: 250px;
-                height: 250px;
-            }
-            
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            .terminal-text {
-                font-size: 1.5rem;
-                min-height: 1.8rem;
-            }
-            
-            header p {
-                font-size: 1.1rem;
-            }
+            .header-content { flex-direction: column; text-align: center; gap: 2rem; }
+            .profile-photo { width: 220px; height: 220px; }
+            header h1 { font-size: 2.4rem; }
         }
 
         @media (max-width: 768px) {
+            .nav-menu-wrapper { 
+                gap: 1.2rem;
+            }
             .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background-color: var(--primary-dark);
-                flex-direction: column;
-                align-items: center;
-                padding-top: 2rem;
-                transition: var(--transition);
+                position: fixed; top: 70px; left: -100%;
+                width: 100%; height: calc(100vh - 70px);
+                background-color: rgba(24, 98, 31, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column; align-items: center;
+                padding-top: 3rem; transition: var(--transition);
+                gap: 0; 
             }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 1rem 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .profile-photo {
-                width: 200px;
-                height: 200px;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
+            .nav-links.active { left: 0; }
+            .nav-links li { margin: 1.5rem 0; width: 100%; text-align: center; }
+            .hamburger { display: block; }
+            section { padding: 4rem 1.5rem; }
+            .section-title { font-size: 1.8rem; margin-bottom: 3rem; }
         }
     </style>
 </head>
@@ -658,32 +542,39 @@
     <header>
         <div class="header-bg"></div>
         <div class="header-content">
-            <img src="img/profile.jpg" alt="Minha Foto" class="profile-photo">
+            <img src="img/profile.jpg" alt="Profile" class="profile-photo">
             <div class="profile-text">
-                <h1>Olá, sou o João Vítor Góes Gomes!</h1>
+                <h1 data-i18n="hero-greeting">Olá, sou o João Vítor Góes Gomes!</h1>
                 <h2 id="terminal-text" class="terminal-text"></h2>
-                <p>Estudante de Desenvolvimento de Software Multiplataforma, Analista de Monitoramento em NOC e estas são minhas experiências como aluno na Fatec SJC.</p>
+                <p data-i18n="hero-desc">Estudante de Desenvolvimento de Software Multiplataforma, Analista de Monitoramento em NOC e estas são minhas experiências como aluno na Fatec SJC.</p>
             </div>
         </div>
     </header>
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Portfólio</a>
-            <ul class="nav-links">
-                <li><a href="#projects">Projetos</a></li>
-                <li><a href="#knowledge">Conhecimentos</a></li>
-                <li><a href="#contact">Contatos</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+            <a href="#" class="logo" data-i18n="nav-portfolio">Portfólio</a>
+            <div class="nav-menu-wrapper">
+                <ul class="nav-links">
+                    <li><a href="#projects" data-i18n="nav-projects">Projetos</a></li>
+                    <li><a href="#knowledge" data-i18n="nav-knowledge">Conhecimentos</a></li>
+                    <li><a href="#contact" data-i18n="nav-contact">Contatos</a></li>
+                </ul>
+                <div class="lang-switch">
+                    <button id="btn-pt" class="active">PT</button>
+                    <button id="btn-en">EN</button>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
     </nav>
 
     <section id="projects">
-        <h2 class="section-title">Meus Projetos</h2>
+        <h2 class="section-title" data-i18n="section-projects-title">Meus Projetos</h2>
         <div class="projects-container">
+            
             <div class="project-card">
                 <div class="project-header">
                     <h3>Smart Farming</h3>
@@ -691,44 +582,30 @@
                 </div>
                 <div class="project-body">
                     <div class="project-description">
-                        <p>Meu primeiro contato com programação, desenvolvido em equipe usando metodologia Scrum. Aplicação web para monitoramento de estufa inteligente que coleta e exibe dados de umidade ambiente e do solo, temperatura ambiente e volume de água.</p>
-                        <p>Como membro da equipe, participei ativamente das cerimônias Scrum (Daily, Planning, Review e Retrospective).</p>
+                        <p data-i18n="sf-desc-1">Meu primeiro contato com programação, desenvolvido em equipe usando metodologia Scrum. Aplicação web para monitoramento de estufa inteligente que coleta e exibe dados de umidade ambiente e do solo, temperatura ambiente e volume de água.</p>
+                        <p data-i18n="sf-desc-2">Como membro da equipe, participei ativamente das cerimônias Scrum (Daily, Planning, Review e Retrospective).</p>
                     </div>
-                    <a href="https://github.com/BugBustersFatecSJC/Smart-farm" class="project-link">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/BugBustersFatecSJC/Smart-farm" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
                     
                     <div class="technologies">
-                        <p class="tech-title">Tecnologias Utilizadas</p>
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Flask</span><span class="tech-tag">MySQL</span><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JS</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
-                        <p class="contrib-title">Contribuições Pessoais</p>
-                        <p><strong>Flask:</strong> Configuração inicial do servidor web e rotas básicas</p>
-                        <p><strong>MySQL:</strong> Modelagem do banco de dados</p>
-                        <p><strong>Front-end:</strong> Criação de interfaces para visualização dos dados</p>
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="sf-contrib-1"><strong>Flask:</strong> Configuração inicial do servidor web e rotas básicas</p>
+                        <p data-i18n="sf-contrib-2"><strong>MySQL:</strong> Modelagem do banco de dados</p>
+                        <p data-i18n="sf-contrib-3"><strong>Front-end:</strong> Criação de interfaces para visualização dos dados</p>
                     </div>
-                    <br>
-                    <div class="hard-skills">
-                        <p class="skills-title">Hard Skills Desenvolvidas</p>
-                        <div class="skills-tags">
-                            <span class="skill-tag">Flask</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                        </div>
-                    </div>
-                    <br>
+                    
                     <div class="soft-skills">
-                        <p class="skills-title">Soft Skills Desenvolvidas</p>
-                        <p><strong>Trabalho em equipe:</strong> Colaboração eficaz em ambiente Scrum com 8 desenvolvedores</p>
-                        <p><strong>Adaptabilidade:</strong> Aprendizado rápido de novas tecnologias durante o projeto</p>
-                        <p><strong>Comunicação:</strong> Participação ativa nas cerimônias ágeis e documentação do projeto</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
+                        <p data-i18n="sf-soft-1"><strong>Trabalho em equipe:</strong> Colaboração eficaz em ambiente Scrum com 8 desenvolvedores</p>
+                        <p data-i18n="sf-soft-2"><strong>Adaptabilidade:</strong> Aprendizado rápido de novas tecnologias durante o projeto</p>
+                        <p data-i18n="sf-soft-3"><strong>Comunicação:</strong> Participação ativa nas cerimônias ágeis e documentação do projeto</p>
                     </div>
                 </div>
             </div>
@@ -740,43 +617,30 @@
                 </div>
                 <div class="project-body">
                     <div class="project-description">
-                        <p>Sistema de controle de estoque desenvolvido com metodologia Scrum, onde atuei como Product Owner. A solução oferece gestão de categorias e produtos, controle de entrada e saída, análise de tendências e relatórios personalizados.</p>
-                        <p>Como PO, fui responsável pelo backlog do produto e priorização das user stories, além de mediar a comunicação entre stakeholders e equipe de desenvolvimento.</p>
+                        <p data-i18n="is-desc-1">Sistema de controle de estoque desenvolvido com metodologia Scrum, onde atuei como Product Owner. A solução oferece gestão de categorias e produtos, controle de entrada e saída e relatórios personalizados.</p>
+                        <p data-i18n="is-desc-2">Como PO, fui responsável pelo backlog do produto e priorização das user stories, além de mediar a comunicação entre stakeholders e equipe.</p>
                     </div>
-                    <a href="https://github.com/BugBustersFatecSJC/inv.sort" class="project-link">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/BugBustersFatecSJC/inv.sort" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
                     
                     <div class="technologies">
-                        <p class="tech-title">Tecnologias Utilizadas</p>
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Prisma</span>
-                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Prisma</span><span class="tech-tag">Tailwind</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
-                        <p class="contrib-title">Contribuições Pessoais</p>
-                        <p><strong>Gestão de Produto:</strong> Definição de roadmap e priorização de features baseado no valor para o cliente</p>
-                        <p><strong>Front-end:</strong> Desenvolvimento de componentes reutilizáveis com React</p>
-                        <p><strong>UI/UX:</strong> Implementação de interface responsiva com Tailwind CSS</p>
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="is-contrib-1"><strong>Gestão de Produto:</strong> Definição de roadmap e priorização de features</p>
+                        <p data-i18n="is-contrib-2"><strong>Front-end:</strong> Desenvolvimento de componentes reutilizáveis com React</p>
+                        <p data-i18n="is-contrib-3"><strong>UI/UX:</strong> Implementação de interface responsiva com Tailwind CSS</p>
                     </div>
-                    <br>
-                    <div class="hard-skills">
-                        <p class="skills-title">Hard Skills Desenvolvidas</p>
-                        <div class="skills-tags">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Tailwind CSS</span>
-                            <span class="skill-tag">Node.js</span>
-                        </div>
-                    </div>
-                    <br>
+                    
                     <div class="soft-skills">
-                        <p class="skills-title">Soft Skills Desenvolvidas</p>
-                        <p><strong>Liderança:</strong> Coordenação de equipe de 8 desenvolvedores</p>
-                        <p><strong>Gestão de Expectativas:</strong> Mediação entre stakeholders e time técnico</p>
-                        <p><strong>Visão Estratégica:</strong> Alinhamento de entregas com objetivos de negócio</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
+                        <p data-i18n="is-soft-1"><strong>Liderança:</strong> Coordenação de equipe de 8 desenvolvedores</p>
+                        <p data-i18n="is-soft-2"><strong>Gestão de Expectativas:</strong> Mediação entre stakeholders e time técnico</p>
+                        <p data-i18n="is-soft-3"><strong>Visão Estratégica:</strong> Alinhamento de entregas com objetivos de negócio</p>
                     </div>
                 </div>
             </div>
@@ -788,41 +652,29 @@
                 </div>
                 <div class="project-body">
                     <div class="project-description">
-                        <p>Sistema de ponto eletrônico desenvolvido com Scrum em 3 sprints: Acesso do Colaborador, Acesso do Gestor/Admin e Análise e Relatórios. A solução inclui registro de ponto, cálculo automático de horas, gestão de ausências e geração de relatórios.</p>
+                        <p data-i18n="cp-desc-1">Sistema de ponto eletrônico desenvolvido com Scrum em 3 sprints. A solução inclui registro de ponto, cálculo automático de horas, gestão de ausências e geração de relatórios.</p>
                     </div>
-                    <a href="https://github.com/FR0M-ZER0/checkpoint" class="project-link">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/FR0M-ZER0/checkpoint" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
                     
                     <div class="technologies">
-                        <p class="tech-title">Tecnologias Utilizadas</p>
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Java Spring Boot</span>
-                            <span class="tech-tag">React TypeScript</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Spring Boot</span><span class="tech-tag">React TS</span><span class="tech-tag">MongoDB</span><span class="tech-tag">AWS</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
-                        <p class="contrib-title">Contribuições Pessoais</p>
-                        <p><strong>Back-end:</strong> Implementação da lógica de cálculo de horas e banco de horas</p>
-                        <p><strong>Front-end:</strong> Desenvolvimento de dashboards e relatórios gerenciais</p>
-                        <p><strong>Integração:</strong> Conexão entre front-end e APIs back-end</p>
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="cp-contrib-1"><strong>Back-end:</strong> Implementação da lógica de cálculo de horas e banco de horas</p>
+                        <p data-i18n="cp-contrib-2"><strong>Front-end:</strong> Desenvolvimento de dashboards e relatórios gerenciais</p>
+                        <p data-i18n="cp-contrib-3"><strong>Integração:</strong> Conexão entre front-end e APIs back-end</p>
                     </div>
-                    <br>
-                    <div class="hard-skills">
-                        <p class="skills-title">Hard Skills Desenvolvidas</p>
-                        <div class="skills-tags">
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">TypeScript</span>
-                        </div>
-                    </div>
-                    <br>
+                    
                     <div class="soft-skills">
-                        <p class="skills-title">Soft Skills Desenvolvidas</p>
-                        <p><strong>Resiliência Técnica:</strong> Aprendizado simultâneo de Java e TypeScript</p>
-                        <p><strong>Orientação a Detalhes:</strong> Cuidado com regras de negócio complexas</p>
-                        <p><strong>Colaboração:</strong> Trabalho em equipe com 5 desenvolvedores</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
+                        <p data-i18n="cp-soft-1"><strong>Resiliência Técnica:</strong> Aprendizado simultâneo de Java e TypeScript</p>
+                        <p data-i18n="cp-soft-2"><strong>Orientação a Detalhes:</strong> Cuidado com regras de negócio complexas</p>
+                        <p data-i18n="cp-soft-3"><strong>Colaboração:</strong> Trabalho em equipe com 5 desenvolvedores</p>
                     </div>
                 </div>
             </div>
@@ -830,186 +682,365 @@
             <div class="project-card">
                 <div class="project-header">
                     <h3>CadastraHub</h3>
-                    <p class="project-period">2025-1 | Projeto Acadêmico</p>
+                    <p class="project-period" data-i18n="ch-period">2025-1 | Projeto Acadêmico</p>
                 </div>
                 <div class="project-body">
                     <div class="project-description">
-                        <p>Plataforma de cadastro de produtos desenvolvida como projeto para a disciplina Desenvolvimento Web II, em parceria com um colega. Solução focada no cadastro e gerenciamento de produtos para uma empresa que enfrentava dificuldades com processos manuais.</p>
-                        <p>Desenvolvido sem metodologia ágil, com divisão natural de tarefas entre os dois integrantes do projeto.</p>
+                        <p data-i18n="ch-desc-1">Plataforma de cadastro de produtos desenvolvida como projeto para a disciplina Desenvolvimento Web II, em parceria com um colega. Foco na resolução de processos manuais de uma empresa.</p>
+                        <p data-i18n="ch-desc-2">Desenvolvido sem metodologia ágil, com divisão natural de tarefas.</p>
                     </div>
-                    <a href="https://github.com/MagNumGomes/CadastraHub" class="project-link">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/MagNumGomes/CadastraHub" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
                     
                     <div class="technologies">
-                        <p class="tech-title">Tecnologias Utilizadas</p>
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Prisma</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Prisma</span><span class="tech-tag">MySQL</span><span class="tech-tag">JWT</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
-                        <p class="contrib-title">Contribuições Pessoais</p>
-                        <p><strong>Back-end:</strong> Desenvolvimento do módulo de autenticação JWT</p>
-                        <p><strong>API:</strong> Implementação de endpoints CRUD para produtos</p>
-                        <p><strong>Integração:</strong> Conexão entre front-end e back-end</p>
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="ch-contrib-1"><strong>Back-end:</strong> Desenvolvimento do módulo de autenticação JWT</p>
+                        <p data-i18n="ch-contrib-2"><strong>API:</strong> Implementação de endpoints CRUD para produtos</p>
+                        <p data-i18n="ch-contrib-3"><strong>Integração:</strong> Conexão entre front-end e back-end</p>
                     </div>
-                    <br>
-                    <div class="hard-skills">
-                        <p class="skills-title">Hard Skills Desenvolvidas</p>
-                        <div class="skills-tags">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Express</span>
-                            <span class="skill-tag">JWT</span>
-                        </div>
-                    </div>
-                    <br>
+                    
                     <div class="soft-skills">
-                        <p class="skills-title">Soft Skills Desenvolvidas</p>
-                        <p><strong>Autogestão:</strong> Organização do tempo entre projeto e disciplinas acadêmicas</p>
-                        <p><strong>Comunicação:</strong> Alinhamento constante com parceiro de projeto</p>
-                        <p><strong>Adaptabilidade:</strong> Ajustes no escopo conforme feedback</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
+                        <p data-i18n="ch-soft-1"><strong>Autogestão:</strong> Organização do tempo entre projeto e disciplinas</p>
+                        <p data-i18n="ch-soft-2"><strong>Comunicação:</strong> Alinhamento constante com parceiro de projeto</p>
+                        <p data-i18n="ch-soft-3"><strong>Adaptabilidade:</strong> Ajustes no escopo conforme feedback</p>
                     </div>
                 </div>
             </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Nimbus</h3>
+                    <p class="project-period">2025-2 | Scrum Team</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <p data-i18n="nb-desc-1">Sistema IoT ponta a ponta voltado ao gerenciamento de dados meteorológicos estruturados. O ecossistema realiza a coleta, tratamento e persistência automatizada de dados.</p>
+                    </div>
+                    <a href="https://github.com/FR0M-ZER0/Nimbus" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <div class="technologies">
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Docker</span><span class="tech-tag">React</span><span class="tech-tag">IoT</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contributions">
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="nb-contrib-1"><strong>Infraestrutura & DB:</strong> Modelagem relacional e estruturação do banco de dados PostgreSQL</p>
+                        <p data-i18n="nb-contrib-2"><strong>Tratamento de Dados:</strong> Desenvolvimento de scripts para ingestão e normalização</p>
+                        <p data-i18n="nb-contrib-3"><strong>Metodologia:</strong> Planejamento dos entregáveis com foco em prazos rigorosos</p>
+                    </div>
+                    
+                    <div class="soft-skills">
+                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
+                        <p data-i18n="nb-soft-1"><strong>Visão Holística:</strong> Entendimento do ciclo de transmissão de hardware para software</p>
+                        <p data-i18n="nb-soft-2"><strong>Pensamento Analítico:</strong> Validação de integridade de dados massivos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>PrecedentIA</h3>
+                    <p class="project-period" data-i18n="pr-period">2026-1 | Product Owner</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <p data-i18n="pr-desc-1">Plataforma inteligente de análise jurídica desenvolvida em parceria com a Xertica.ai. O sistema analisa petições jurídicas e recomenda precedentes judiciais assertivos.</p>
+                    </div>
+                    <a href="https://github.com/FR0M-ZER0/PrecedentIA" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    
+                    <div class="technologies">
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Node.js</span><span class="tech-tag">Python (AI)</span><span class="tech-tag">Dart</span><span class="tech-tag">Flutter</span><span class="tech-tag">Terraform</span><span class="tech-tag">Git Submodules</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contributions">
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="pr-contrib-1"><strong>Product Owner:</strong> Priorização do backlog e alinhamento das entregas com a equipe e a Xertica.ai</p>
+                        <p data-i18n="pr-contrib-2"><strong>Dart & Flutter:</strong> Desenvolvimento de componentes e interfaces da aplicação</p>
+                        <p data-i18n="pr-contrib-3"><strong>DevOps & Terraform:</strong> Estruturação da infraestrutura como código e apoio ao deploy da solução</p>
+                    </div>
+                    
+                    <div class="soft-skills">
+                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
+                        <p data-i18n="pr-soft-1"><strong>Comunicação Corporativa:</strong> Alinhamento técnico com o cliente</p>
+                        <p data-i18n="pr-soft-2"><strong>Liderança Técnica:</strong> Condução das decisões de DevOps do time</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="knowledge">
-        <h2 class="section-title">Meus Principais Conhecimentos</h2>
+        <h2 class="section-title" data-i18n="section-knowledge-title">Meus Principais Conhecimentos</h2>
         <div class="knowledge-container">
             <div class="knowledge-card">
-                <div class="knowledge-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
+                <div class="knowledge-icon"><i class="fas fa-chart-line"></i></div>
                 <h3>Observability (DevOps)</h3>
             </div>
             <div class="knowledge-card">
-                <div class="knowledge-icon">
-                    <i class="fas fa-code"></i>
-                </div>
+                <div class="knowledge-icon"><i class="fas fa-code"></i></div>
                 <h3>Frontend</h3>
             </div>
             <div class="knowledge-card">
-                <div class="knowledge-icon">
-                    <i class="fas fa-server"></i>
-                </div>
+                <div class="knowledge-icon"><i class="fas fa-server"></i></div>
                 <h3>Backend</h3>
             </div>
             <div class="knowledge-card">
-                <div class="knowledge-icon">
-                    <i class="fas fa-project-diagram"></i>
-                </div>
-                <h3>Gestão de Projetos de TI</h3>
+                <div class="knowledge-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3 data-i18n="know-pm">Gestão de Projetos de TI</h3>
             </div>
             <div class="knowledge-card">
-                <div class="knowledge-icon">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
+                <div class="knowledge-icon"><i class="fas fa-paint-brush"></i></div>
                 <h3>UX/UI</h3>
             </div>
             <div class="knowledge-card">
-                <div class="knowledge-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
+                <div class="knowledge-icon"><i class="fas fa-robot"></i></div>
                 <h3>AI Agents</h3>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2 class="section-title">Contatos</h2>
+        <h2 class="section-title" data-i18n="section-contact-title">Contatos</h2>
         <div class="contacts-container">
-            <a href="https://github.com/MagNumGomes" class="contact-link">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/joaovitorgoes/" class="contact-link">
+            <a href="https://www.linkedin.com/in/joaovitorgoes/" class="contact-link" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/MagNumGomes" class="contact-link" target="_blank">
+                <i class="fab fa-github"></i>
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Portfólio de João Vítor Góes Gomes. Todos os direitos reservados.</p>
+        <p data-i18n="footer-text">&copy; 2026 Portfólio de João Vítor Góes Gomes. Todos os direitos reservados.</p>
     </footer>
+
     <script>
-        const terminalText = document.getElementById('terminal-text');
-        const textToType = "Full Stack Developer";
-        let i = 0;
-        let isDeleting = false;
-        let typingSpeed = 150;
-        let loopCount = 0;
-        const maxLoops = 3; 
-        
-        function typeTerminalText() {
-            const currentText = textToType.substring(0, i);
-            terminalText.textContent = currentText;
-            
-            if (!isDeleting && i === textToType.length) {
-                isDeleting = true;
-                typingSpeed = 700;
-            } else if (isDeleting && i === 0) {
-                isDeleting = false;
-                loopCount++;
-                typingSpeed = 150;
+        const i18nData = {
+            pt: {
+                "nav-portfolio": "Portfólio", "nav-projects": "Projetos", "nav-knowledge": "Conhecimentos", "nav-contact": "Contatos",
+                "hero-greeting": "Olá, sou o João Vítor Góes Gomes!",
+                "hero-desc": "Estudante de Desenvolvimento de Software Multiplataforma, Analista de Monitoramento em NOC e estas são minhas experiências como aluno na Fatec SJC.",
+                "section-projects-title": "Meus Projetos", "tech-used": "Tecnologias Utilizadas", "personal-contrib": "Contribuições Pessoais",
+                "soft-skills-title": "Soft Skills Desenvolvidas", "view-github": "Ver no GitHub <i class='fas fa-external-link-alt'></i>",
+                "ch-period": "2025-1 | Projeto Acadêmico", "pr-period": "2026-1 | Product Owner",
                 
-                if (loopCount >= maxLoops) {
-                    terminalText.textContent = textToType;
-                    terminalText.style.setProperty('--after', 'none');
-                    return;
+                "sf-desc-1": "Meu primeiro contato com programação, desenvolvido em equipe usando metodologia Scrum. Aplicação web para monitoramento de estufa inteligente que coleta e exibe dados de umidade ambiente e do solo, temperatura ambiente e volume de água.",
+                "sf-desc-2": "Como membro da equipe, participei ativamente das cerimônias Scrum (Daily, Planning, Review e Retrospective).",
+                "sf-contrib-1": "<strong>Flask:</strong> Configuração inicial do servidor web e rotas básicas",
+                "sf-contrib-2": "<strong>MySQL:</strong> Modelagem do banco de dados",
+                "sf-contrib-3": "<strong>Front-end:</strong> Criação de interfaces para visualização dos dados",
+                "sf-soft-1": "<strong>Trabalho em equipe:</strong> Colaboração eficaz em ambiente Scrum com 8 desenvolvedores",
+                "sf-soft-2": "<strong>Adaptabilidade:</strong> Aprendizado rápido de novas tecnologias durante o projeto",
+                "sf-soft-3": "<strong>Comunicação:</strong> Participação ativa nas cerimônias ágeis e documentação do projeto",
+                
+                "is-desc-1": "Sistema de controle de estoque desenvolvido com metodologia Scrum, onde atuei como Product Owner. A solução oferece gestão de categorias e produtos, controle de entrada e saída e relatórios personalizados.",
+                "is-desc-2": "Como PO, fui responsável pelo backlog do produto e priorização das user stories, além de mediar a comunicação entre stakeholders e equipe.",
+                "is-contrib-1": "<strong>Gestão de Produto:</strong> Definição de roadmap e priorização de features",
+                "is-contrib-2": "<strong>Front-end:</strong> Desenvolvimento de componentes reutilizáveis com React",
+                "is-contrib-3": "<strong>UI/UX:</strong> Implementação de interface responsiva com Tailwind CSS",
+                "is-soft-1": "<strong>Liderança:</strong> Coordenação de equipe de 8 desenvolvedores",
+                "is-soft-2": "<strong>Gestão de Expectativas:</strong> Mediação entre stakeholders e time técnico",
+                "is-soft-3": "<strong>Visão Estratégica:</strong> Alinhamento de entregas com objetivos de negócio",
+
+                "cp-desc-1": "Sistema de ponto eletrônico desenvolvido com Scrum em 3 sprints. A solução inclui registro de ponto, cálculo automático de horas, gestão de ausências e geração de relatórios.",
+                "cp-contrib-1": "<strong>Back-end:</strong> Implementação da lógica de cálculo de horas e banco de horas",
+                "cp-contrib-2": "<strong>Front-end:</strong> Desenvolvimento de dashboards e relatórios gerenciais",
+                "cp-contrib-3": "<strong>Integração:</strong> Conexão entre front-end e APIs back-end",
+                "cp-soft-1": "<strong>Resiliência Técnica:</strong> Aprendizado simultâneo de Java e TypeScript",
+                "cp-soft-2": "<strong>Orientação a Detalhes:</strong> Cuidado com regras de negócio complexas",
+                "cp-soft-3": "<strong>Colaboração:</strong> Trabalho em equipe com 5 desenvolvedores",
+
+                "ch-desc-1": "Plataforma de cadastro de produtos desenvolvida como projeto para a disciplina Desenvolvimento Web II, em parceria com um colega. Foco na resolução de processos manuais de uma empresa.",
+                "ch-desc-2": "Desenvolvido sem metodologia ágil, com divisão natural de tarefas.",
+                "ch-contrib-1": "<strong>Back-end:</strong> Desenvolvimento do módulo de autenticação JWT",
+                "ch-contrib-2": "<strong>API:</strong> Implementação de endpoints CRUD para produtos",
+                "ch-contrib-3": "<strong>Integração:</strong> Conexão entre front-end e back-end",
+                "ch-soft-1": "<strong>Autogestão:</strong> Organização do tempo entre projeto e disciplinas",
+                "ch-soft-2": "<strong>Comunicação:</strong> Alinhamento constante com parceiro de projeto",
+                "ch-soft-3": "<strong>Adaptabilidade:</strong> Ajustes no escopo conforme feedback",
+
+                "nb-desc-1": "Sistema IoT ponta a ponta voltado ao gerenciamento de dados meteorológicos estruturados. O ecossistema realiza a coleta, tratamento e persistência automatizada de dados.",
+                "nb-contrib-1": "<strong>Infraestrutura & DB:</strong> Modelagem relacional e estruturação do banco de dados PostgreSQL",
+                "nb-contrib-2": "<strong>Tratamento de Dados:</strong> Desenvolvimento de scripts para ingestão e normalização",
+                "nb-contrib-3": "<strong>Metodologia:</strong> Planejamento dos entregáveis com foco em prazos rigorosos",
+                "nb-soft-1": "<strong>Visão Holística:</strong> Entendimento do ciclo de transmissão de hardware para software",
+                "nb-soft-2": "<strong>Pensamento Analítico:</strong> Validação de integridade de dados massivos",
+
+                "pr-desc-1": "Plataforma inteligente de análise jurídica desenvolvida em parceria com a Xertica.ai. O sistema analisa petições jurídicas e recomenda precedentes judiciais assertivos.",
+                "pr-contrib-1": "<strong>Product Owner:</strong> Priorização do backlog e alinhamento das entregas com a equipe e a Xertica.ai",
+                "pr-contrib-2": "<strong>Dart & Flutter:</strong> Desenvolvimento de componentes e interfaces da aplicação",
+                "pr-contrib-3": "<strong>DevOps & Terraform:</strong> Estruturação da infraestrutura como código e apoio ao deploy da solução",
+                "pr-soft-1": "<strong>Comunicação Corporativa:</strong> Alinhamento técnico com o cliente",
+                "pr-soft-2": "<strong>Liderança Técnica:</strong> Condução das decisões de DevOps do time",
+
+                "section-knowledge-title": "Meus Principais Conhecimentos", "know-pm": "Gestão de Projetos de TI",
+                "section-contact-title": "Contatos",
+                "footer-text": "&copy; 2026 Portfólio de João Vítor Góes Gomes. Todos os direitos reservados."
+            },
+            en: {
+                "nav-portfolio": "Portfolio", "nav-projects": "Projects", "nav-knowledge": "Knowledge", "nav-contact": "Contact",
+                "hero-greeting": "Hi, I'm João Vítor Góes Gomes!",
+                "hero-desc": "Multiplatform Software Development student, NOC Monitoring Analyst, and these are my experiences as a Fatec SJC student.",
+                "section-projects-title": "My Projects", "tech-used": "Technologies Used", "personal-contrib": "Personal Contributions",
+                "soft-skills-title": "Soft Skills Developed", "view-github": "View on GitHub <i class='fas fa-external-link-alt'></i>",
+                "ch-period": "2025-1 | Academic Project", "pr-period": "2026-1 | Product Owner",
+
+                "sf-desc-1": "My first coding project, developed in a team using Scrum. A web application for smart greenhouse monitoring that tracks ambient/soil moisture, temperature, and water volume.",
+                "sf-desc-2": "Actively participated in all Scrum ceremonies (Daily, Planning, Review, and Retrospective).",
+                "sf-contrib-1": "<strong>Flask:</strong> Initial web server setup and basic routes",
+                "sf-contrib-2": "<strong>MySQL:</strong> Database modeling",
+                "sf-contrib-3": "<strong>Front-end:</strong> Data visualization interfaces creation",
+                "sf-soft-1": "<strong>Teamwork:</strong> Effective collaboration in a Scrum environment with 8 developers",
+                "sf-soft-2": "<strong>Adaptability:</strong> Fast learning of new technologies",
+                "sf-soft-3": "<strong>Communication:</strong> Active participation in agile ceremonies",
+
+                "is-desc-1": "Inventory control system developed with Scrum methodology, where I acted as Product Owner. Offers product management, in/out control, and custom reports.",
+                "is-desc-2": "As PO, I managed the product backlog, prioritized user stories, and mediated communication between stakeholders and the team.",
+                "is-contrib-1": "<strong>Product Management:</strong> Roadmap definition and feature prioritization",
+                "is-contrib-2": "<strong>Front-end:</strong> Reusable components development with React",
+                "is-contrib-3": "<strong>UI/UX:</strong> Responsive interface implementation with Tailwind CSS",
+                "is-soft-1": "<strong>Leadership:</strong> Coordination of an 8-developer team",
+                "is-soft-2": "<strong>Expectation Management:</strong> Mediation between stakeholders and tech team",
+                "is-soft-3": "<strong>Strategic Vision:</strong> Aligning deliverables with business goals",
+
+                "cp-desc-1": "Electronic time tracking system developed with Scrum in 3 sprints. Includes time logging, automatic hours calculation, absence management, and report generation.",
+                "cp-contrib-1": "<strong>Back-end:</strong> Hours calculation logic and time bank implementation",
+                "cp-contrib-2": "<strong>Front-end:</strong> Managerial dashboards and reports development",
+                "cp-contrib-3": "<strong>Integration:</strong> Front-end to back-end APIs connection",
+                "cp-soft-1": "<strong>Technical Resilience:</strong> Simultaneous learning of Java and TypeScript",
+                "cp-soft-2": "<strong>Detail Orientation:</strong> Care with complex business rules",
+                "cp-soft-3": "<strong>Collaboration:</strong> Teamwork with 5 developers",
+
+                "ch-desc-1": "Product registration platform developed for the Web Development II course. Focused on solving manual process issues for a company.",
+                "ch-desc-2": "Developed without agile methodology, with a natural division of tasks between partners.",
+                "ch-contrib-1": "<strong>Back-end:</strong> JWT authentication module development",
+                "ch-contrib-2": "<strong>API:</strong> CRUD endpoints implementation for products",
+                "ch-contrib-3": "<strong>Integration:</strong> Front-end to back-end connection",
+                "ch-soft-1": "<strong>Self-management:</strong> Time organization between project and college",
+                "ch-soft-2": "<strong>Communication:</strong> Constant alignment with project partner",
+                "ch-soft-3": "<strong>Adaptability:</strong> Scope adjustments based on feedback",
+
+                "nb-desc-1": "End-to-end IoT system for structured meteorological data management. Handles automated collection, processing, and persistence of climate data.",
+                "nb-contrib-1": "<strong>Infrastructure & DB:</strong> Relational modeling and PostgreSQL database structuring",
+                "nb-contrib-2": "<strong>Data Processing:</strong> Ingestion and normalization scripts development",
+                "nb-contrib-3": "<strong>Methodology:</strong> Deliverables planning focusing on strict deadlines",
+                "nb-soft-1": "<strong>Holistic Vision:</strong> Complete hardware-to-software cycle understanding",
+                "nb-soft-2": "<strong>Analytical Thinking:</strong> Massive data integrity validation",
+
+                "pr-desc-1": "Intelligent legal analysis platform developed with Xertica.ai. The system analyzes legal petitions and autonomously recommends judicial precedents.",
+                "pr-contrib-1": "<strong>Product Owner:</strong> Backlog prioritization and delivery alignment with the team and Xertica.ai",
+                "pr-contrib-2": "<strong>Dart & Flutter:</strong> Development of application components and interfaces",
+                "pr-contrib-3": "<strong>DevOps & Terraform:</strong> Infrastructure as code setup and deployment support for the solution",
+                "pr-soft-1": "<strong>Corporate Communication:</strong> Technical alignment with the client",
+                "pr-soft-2": "<strong>Technical Leadership:</strong> Leading team's DevOps decisions",
+
+                "section-knowledge-title": "My Core Knowledge", "know-pm": "IT Project Management",
+                "section-contact-title": "Contact",
+                "footer-text": "&copy; 2026 João Vítor Góes Gomes Portfolio. All rights reserved."
+            }
+        };
+
+        let currentLang = 'pt';
+        const btnPt = document.getElementById('btn-pt');
+        const btnEn = document.getElementById('btn-en');
+        
+        const rolesPt = ["Desenvolvedor Full Stack", "Analista de NOC (Network Operations Center)"];
+        const rolesEn = ["Full Stack Developer", "NOC (Network Operations Center) Analyst"];
+        
+        let currentRoles = rolesPt;
+        let roleIndex = 0;
+        let typingTimeout;
+        let i = 0; 
+        let isDeleting = false;
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            btnPt.classList.toggle('active', lang === 'pt');
+            btnEn.classList.toggle('active', lang === 'en');
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18nData[lang][key]) {
+                    el.innerHTML = i18nData[lang][key];
                 }
+            });
+
+            currentRoles = lang === 'pt' ? rolesPt : rolesEn;
+            roleIndex = 0;
+            const terminalText = document.getElementById('terminal-text');
+            terminalText.textContent = '';
+            i = 0; 
+            isDeleting = false;
+            clearTimeout(typingTimeout);
+            typeTerminalText();
+        }
+
+        btnPt.addEventListener('click', () => setLanguage('pt'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
+
+        function typeTerminalText() {
+            const terminalText = document.getElementById('terminal-text');
+            const currentRole = currentRoles[roleIndex];
+            
+            terminalText.textContent = currentRole.substring(0, i);
+            let speed = 150; 
+            
+            if (!isDeleting && i === currentRole.length) {
+                isDeleting = true; 
+                speed = 6000; 
+            } else if (isDeleting && i === 0) {
+                isDeleting = false; 
+                roleIndex = (roleIndex + 1) % currentRoles.length;
+                speed = 1000; 
             }
             
             i = isDeleting ? i - 1 : i + 1;
-            
-            setTimeout(typeTerminalText, typingSpeed);
+            typingTimeout = setTimeout(typeTerminalText, isDeleting ? 70 : speed);
         }
         
         setTimeout(typeTerminalText, 1000);
 
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
-
-        const observerOptions = {
-            threshold: 0.1
-        };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('animate');
             });
-        }, observerOptions);
+        }, { threshold: 0.05, rootMargin: "0px 0px -30px 0px" });
 
-        document.querySelectorAll('section, .project-card, .knowledge-card, .tech-tag, .skill-tag, .contact-link').forEach(element => {
-            observer.observe(element);
-        });
+        document.querySelectorAll('section, .project-card, .knowledge-card, .tech-tag, .contact-link').forEach(el => observer.observe(el));
 
         document.querySelectorAll('.knowledge-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
-                const x = e.pageX - card.offsetLeft;
-                const y = e.pageY - card.offsetTop;
-                
-                card.style.transform = `translateY(-5px) rotate3d(${y/100}, ${x/100}, 0, 5deg)`;
+                const rect = card.getBoundingClientRect();
+                const rotateX = ((rect.height / 2) - (e.clientY - rect.top)) / 15;
+                const rotateY = ((e.clientX - rect.left) - (rect.width / 2)) / 15;
+                card.style.transform = `translateY(-5px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
             });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) rotate(0)';
-            });
+            card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg)');
         });
+        
+        setLanguage('pt');
     </script>
 </body>
 </html>
