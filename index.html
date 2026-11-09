@@ -3,779 +3,572 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de João Vítor Góes Gomes</title>
+    <title>Portfólio Acadêmico | João Vítor Góes Gomes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2b8a3e;
-            --primary-light: #51cf66;
-            --primary-dark: #18621f;
-            --text-light: #fdfdfd;
-            --text-dark: #2d3436;
-            --bg-light: #f8f9fa;
-            --bg-dark: #212529;
-            --card-bg: #ffffff;
-            --transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-            color: var(--text-light);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            max-width: 1200px;
-            width: 100%;
-            gap: 4rem;
-            z-index: 2;
-        }
-
-        .profile-photo {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            animation: fadeInScale 1s ease-out forwards 0.2s, float 6s ease-in-out infinite 1.2s;
-            transition: var(--transition);
-        }
-
-        .profile-photo:hover {
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
-            transform: scale(1.02);
-        }
-
-        .profile-text {
-            flex: 1;
-        }
-
-        header h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 0.3s;
-        }
-
-        .terminal-text {
-            position: relative;
-            display: inline-block;
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 0.5s;
-            min-height: 2.4rem;
-        }
-        
-        .terminal-text::after {
-            content: '|';
-            position: absolute;
-            right: -10px;
-            animation: blink 0.7s infinite;
-            color: var(--primary-light);
-        }
-
-        header p {
-            font-size: 1.15rem;
-            font-weight: 300;
-            max-width: 650px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 0.7s;
-        }
-
-        .header-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.08;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff"><circle cx="25" cy="25" r="3"/><circle cx="75" cy="75" r="3"/><circle cx="75" cy="25" r="3"/><circle cx="25" cy="75" r="3"/></svg>');
-            background-size: 50px;
-        }
-
-        nav {
-            background-color: rgba(43, 138, 62, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transform: translateY(-100%);
-            animation: slideDown 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards 1s;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 2rem;
-        }
-
-        .logo {
-            color: var(--text-light);
-            font-weight: 700;
-            font-size: 1.5rem;
-            text-decoration: none;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-
-        .nav-menu-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding: 0.5rem 0;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            width: 0; height: 2px;
-            background-color: var(--text-light);
-            transition: var(--transition);
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .nav-links a:hover::after { width: 100%; }
-
-        .lang-switch {
-            display: flex;
-            background: rgba(0, 0, 0, 0.2); 
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 4px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
-            transition: var(--transition);
-        }
-
-        .lang-switch:hover {
-            background: rgba(0, 0, 0, 0.25);
-        }
-
-        .lang-switch button {
-            background: transparent;
-            border: none;
-            color: rgba(255, 255, 255, 0.8);
-            padding: 5px 16px;
-            border-radius: 16px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: var(--transition);
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .lang-switch button.active {
-            background: #ffffff;
-            color: var(--primary-color);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            color: var(--text-light);
-            font-size: 1.8rem;
-            padding: 0.5rem;
-            background: transparent;
-            border: none;
-            transition: var(--transition);
-        }
-
-        .hamburger:hover {
-            transform: scale(1.1);
-        }
-
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        section.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--primary-dark);
-            font-size: 2.2rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-color);
-            margin: 1rem auto 0;
-            border-radius: 4px;
-            transform: scaleX(0);
-            transition: transform 0.6s ease;
-        }
-        
-        section.animate .section-title::after { transform: scaleX(1); }
-
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-        
-        .project-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-
-        .project-header {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-header { background-color: var(--primary-dark); }
-
-        .project-header h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .project-period {
-            font-size: 0.85rem;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .project-body {
-            padding: 1.8rem;
-            display: flex;
-            flex-direction: column;
-            flex: 1; 
-        }
-
-        .project-description {
-            margin-bottom: 1.5rem;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            align-self: flex-start;
-        }
-
-        .project-link:hover {
-            color: var(--primary-dark);
-            gap: 5px; 
-        }
-        
-        .project-link i { margin-left: 0.5rem; }
-
-        .technologies, .contributions { margin-bottom: 1.5rem; }
-        
-        .soft-skills {
-            margin-top: auto; 
-        }
-
-        .tech-title, .contrib-title, .skills-title {
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-bottom: 0.8rem;
-            font-size: 1.05rem;
-        }
-
-        .contributions p, .soft-skills p {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 0.4rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .contributions p::before, .soft-skills p::before {
-            content: '•';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .tech-tags, .skills-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .tech-tag, .skill-tag {
-            background-color: rgba(81, 207, 102, 0.15);
-            color: var(--primary-dark);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transform: scale(0);
-            transition: var(--transition);
-            border: 1px solid rgba(81, 207, 102, 0.3);
-        }
-        
-        .tech-tag.animate, .skill-tag.animate { transform: scale(1); }
-        
-        .tech-tag:hover, .skill-tag:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: scale(1.05) !important;
-        }
-
-        .knowledge-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-        }
-
-        .knowledge-card {
-            background-color: var(--card-bg);
-            padding: 2rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px) rotate(2deg);
-        }
-        
-        .knowledge-card.animate {
-            opacity: 1;
-            transform: translateY(0) rotate(0deg);
-        }
-
-        .knowledge-card:hover {
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .knowledge-icon {
-            font-size: 2.8rem;
-            color: var(--primary-light);
-            margin-bottom: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .knowledge-card:hover .knowledge-icon {
-            transform: scale(1.1);
-            color: var(--primary-color);
-        }
-        
-        .knowledge-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .contacts-container {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 65px;
-            height: 65px;
-            background-color: var(--card-bg);
-            color: var(--primary-color);
-            border-radius: 50%;
-            font-size: 1.8rem;
-            transition: var(--transition);
-            text-decoration: none;
-            opacity: 0;
-            transform: scale(0);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-        
-        .contact-link.animate {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .contact-link:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            transform: scale(1.1) translateY(-5px) !important;
-            box-shadow: 0 10px 25px rgba(43, 138, 62, 0.4);
-        }
-
-        footer {
-            background-color: var(--bg-dark);
-            color: #aaa;
-            text-align: center;
-            padding: 2.5rem;
-            font-size: 0.9rem;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards 2s;
-        }
-
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
-        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-        @media (max-width: 992px) {
-            .header-content { flex-direction: column; text-align: center; gap: 2rem; }
-            .profile-photo { width: 220px; height: 220px; }
-            header h1 { font-size: 2.4rem; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu-wrapper { 
-                gap: 1.2rem;
-            }
-            .nav-links {
-                position: fixed; top: 70px; left: -100%;
-                width: 100%; height: calc(100vh - 70px);
-                background-color: rgba(24, 98, 31, 0.98);
-                backdrop-filter: blur(15px);
-                flex-direction: column; align-items: center;
-                padding-top: 3rem; transition: var(--transition);
-                gap: 0; 
-            }
-            .nav-links.active { left: 0; }
-            .nav-links li { margin: 1.5rem 0; width: 100%; text-align: center; }
-            .hamburger { display: block; }
-            section { padding: 4rem 1.5rem; }
-            .section-title { font-size: 1.8rem; margin-bottom: 3rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css?v=20261109-skills-topics">
 </head>
 <body>
-    <header>
+    <!-- 2.1. Apresentação Pessoal -->
+    <header id="presentation">
         <div class="header-bg"></div>
         <div class="header-content">
-            <img src="img/profile.jpg" alt="Profile" class="profile-photo">
+            <img src="img/profile.jpg" alt="Foto de João Vítor Góes Gomes" class="profile-photo">
             <div class="profile-text">
-                <h1 data-i18n="hero-greeting">Olá, sou o João Vítor Góes Gomes!</h1>
+                <span class="eyebrow" data-i18n="hero-eyebrow">Portfólio Acadêmico Digital • FATEC SJC</span>
+                <h1 data-i18n="hero-greeting">João Vítor Góes Gomes</h1>
                 <h2 id="terminal-text" class="terminal-text"></h2>
-                <p data-i18n="hero-desc">Estudante de Desenvolvimento de Software Multiplataforma, Analista de Monitoramento em NOC e estas são minhas experiências como aluno na Fatec SJC.</p>
+                <p data-i18n="hero-desc">Estudante de Desenvolvimento de Software Multiplataforma na FATEC São José dos Campos (Prof. Jessen Vidal) e Analista de Monitoramento em NOC (Network Operations Center).</p>
+
+                <div class="hero-highlights">
+                    <div class="hero-box">
+                        <h3 data-i18n="hero-obj-title"><i class="fas fa-bullseye"></i> Objetivos Acadêmicos e Profissionais</h3>
+                        <p data-i18n="hero-obj-text">Atuar como Desenvolvedor Full Stack e Engenheiro DevOps/SRE, aplicando engenharia de software, automação inteligente e arquitetura em nuvem para construir sistemas escaláveis, resilientes e de alto impacto.</p>
+                    </div>
+                    <div class="hero-box">
+                        <h3 data-i18n="hero-int-title"><i class="fas fa-compass"></i> Áreas de Interesse</h3>
+                        <div class="interest-tags">
+                            <span class="interest-tag" data-i18n="int-1">Desenvolvimento Full Stack</span>
+                            <span class="interest-tag" data-i18n="int-2">DevOps, SRE & Observabilidade</span>
+                            <span class="interest-tag" data-i18n="int-3">APIs REST & Microsserviços</span>
+                            <span class="interest-tag" data-i18n="int-4">Inteligência Artificial & Agentes</span>
+                            <span class="interest-tag" data-i18n="int-5">Mobile (Flutter / React Native)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-socials">
+                    <a href="https://github.com/MagNumGomes" target="_blank" rel="noopener noreferrer" class="hero-social-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/joaovitorgoes/" target="_blank" rel="noopener noreferrer" class="hero-social-btn">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="mailto:joaogg10@gmail.com" class="hero-social-btn">
+                        <i class="fas fa-envelope"></i> joaogg10@gmail.com
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
+    <!-- Navegação -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo" data-i18n="nav-portfolio">Portfólio</a>
+            <a href="#presentation" class="logo" data-i18n="nav-portfolio">Portfólio</a>
             <div class="nav-menu-wrapper">
                 <ul class="nav-links">
+                    <li><a href="#presentation" data-i18n="nav-presentation">Apresentação</a></li>
                     <li><a href="#projects" data-i18n="nav-projects">Projetos</a></li>
-                    <li><a href="#knowledge" data-i18n="nav-knowledge">Conhecimentos</a></li>
+                    <li><a href="#knowledge" data-i18n="nav-knowledge">Competências</a></li>
+                    <li><a href="#curriculum" data-i18n="nav-curriculum">Currículo</a></li>
                     <li><a href="#contact" data-i18n="nav-contact">Contatos</a></li>
                 </ul>
                 <div class="lang-switch">
-                    <button id="btn-pt" class="active">PT</button>
-                    <button id="btn-en">EN</button>
+                    <button id="btn-pt" class="active" type="button">PT</button>
+                    <button id="btn-en" type="button">EN</button>
                 </div>
-                <div class="hamburger">
+                <button class="hamburger" type="button" aria-label="Menu">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
             </div>
         </div>
     </nav>
 
+    <!-- 2.2. Projetos (Subdivididos em Acadêmicos API, Profissionais e Pessoais/Outros) -->
     <section id="projects">
         <h2 class="section-title" data-i18n="section-projects-title">Meus Projetos</h2>
+        <p class="section-subtitle" data-i18n="section-projects-subtitle">Explore meus projetos acadêmicos (API), profissionais e pessoais desenvolvidos ao longo da minha trajetória.</p>
+
+        <div class="project-filters" role="group" aria-label="Filtrar projetos por categoria">
+            <button class="filter-btn active" type="button" data-filter="all" data-i18n="filter-all">Todos</button>
+            <button class="filter-btn" type="button" data-filter="api" data-i18n="filter-api">#Acadêmicos (API)</button>
+            <button class="filter-btn" type="button" data-filter="professional" data-i18n="filter-prof">#Profissionais</button>
+            <button class="filter-btn" type="button" data-filter="personal" data-i18n="filter-personal">#Pessoais & Outros</button>
+        </div>
+
         <div class="projects-container">
             
-            <div class="project-card">
+            <!-- API 1: Smart Farming -->
+            <div class="project-card" data-category="api">
                 <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-api">Projeto Acadêmico (API)</span>
                     <h3>Smart Farming</h3>
-                    <p class="project-period">2024-1 | Scrum Team</p>
+                    <p class="project-period">2024-1 | 1º Semestre DSM • Scrum Team</p>
+                    <p class="project-partner" data-i18n="sf-partner"><i class="fas fa-handshake"></i> Empresa Parceira: Equipe I9 / FATEC SJC</p>
                 </div>
                 <div class="project-body">
-                    <div class="project-description">
-                        <p data-i18n="sf-desc-1">Meu primeiro contato com programação, desenvolvido em equipe usando metodologia Scrum. Aplicação web para monitoramento de estufa inteligente que coleta e exibe dados de umidade ambiente e do solo, temperatura ambiente e volume de água.</p>
-                        <p data-i18n="sf-desc-2">Como membro da equipe, participei ativamente das cerimônias Scrum (Daily, Planning, Review e Retrospective).</p>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="sf-problem">A necessidade de monitorar, armazenar e analisar continuamente variáveis críticas de uma estufa automatizada para agricultura indoor (umidade do ar e do solo, temperatura e volume de água), evitando perdas no cultivo por falta de acompanhamento diário.</p>
                     </div>
-                    <a href="https://github.com/BugBustersFatecSJC/Smart-farm" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="sf-solution">Aplicação web desenvolvida em equipe com Scrum para leitura, persistência e visualização gráfica das médias diárias e leituras dos sensores da estufa inteligente.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/BugBustersFatecSJC/Smart-farm" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github">Repositório da Equipe <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/MagNumGomes/Smart-farm" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
                     
                     <div class="technologies">
                         <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Flask</span><span class="tech-tag">MySQL</span><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JS</span>
+                            <span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">MySQL</span><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JavaScript</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
                         <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
-                        <p data-i18n="sf-contrib-1"><strong>Flask:</strong> Configuração inicial do servidor web e rotas básicas</p>
-                        <p data-i18n="sf-contrib-2"><strong>MySQL:</strong> Modelagem do banco de dados</p>
-                        <p data-i18n="sf-contrib-3"><strong>Front-end:</strong> Criação de interfaces para visualização dos dados</p>
+                        <p data-i18n="sf-contrib-1"><strong>Flask:</strong> Configuração inicial do servidor web, rotas REST/HTTP e operações CRUD.</p>
+                        <p data-i18n="sf-contrib-2"><strong>MySQL:</strong> Modelagem relacional e estruturação do banco de dados das leituras.</p>
+                        <p data-i18n="sf-contrib-3"><strong>Front-end:</strong> Criação de interfaces responsivas e filtros para visualização dos dados.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="sf-hard-1"><strong>Python & Flask (Desenvolvedor Autônomo):</strong> Construção de rotas backend e integração com templates.</p>
+                        <p data-i18n="sf-hard-2"><strong>SQL / MySQL (Desenvolvedor Autônomo):</strong> Modelagem de tabelas e consultas agregadas.</p>
+                        <p data-i18n="sf-hard-3"><strong>HTML5, CSS3 & JS (Fluente):</strong> Estruturação semântica e consumo dinâmico de dados.</p>
                     </div>
                     
                     <div class="soft-skills">
-                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
-                        <p data-i18n="sf-soft-1"><strong>Trabalho em equipe:</strong> Colaboração eficaz em ambiente Scrum com 8 desenvolvedores</p>
-                        <p data-i18n="sf-soft-2"><strong>Adaptabilidade:</strong> Aprendizado rápido de novas tecnologias durante o projeto</p>
-                        <p data-i18n="sf-soft-3"><strong>Comunicação:</strong> Participação ativa nas cerimônias ágeis e documentação do projeto</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="sf-soft-1"><strong>Trabalho em equipe:</strong> Colaboração eficaz em ambiente Scrum com 8 desenvolvedores.</p>
+                        <p data-i18n="sf-soft-2"><strong>Adaptabilidade:</strong> Aprendizado rápido de novas tecnologias no 1º semestre.</p>
+                        <p data-i18n="sf-soft-3"><strong>Comunicação:</strong> Participação ativa nas cerimônias ágeis (Daily, Planning, Review e Retro).</p>
                     </div>
                 </div>
             </div>
             
-            <div class="project-card">
+            <!-- API 2: Inv.Sort -->
+            <div class="project-card" data-category="api">
                 <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-api">Projeto Acadêmico (API)</span>
                     <h3>Inv.Sort</h3>
-                    <p class="project-period">2024-2 | Product Owner</p>
+                    <p class="project-period">2024-2 | 2º Semestre DSM • Product Owner</p>
+                    <p class="project-partner" data-i18n="is-partner"><i class="fas fa-handshake"></i> Empresa Parceira: Prof. Cláudio Etelvino (Cliente Acelerador - FATEC SJC)</p>
                 </div>
                 <div class="project-body">
-                    <div class="project-description">
-                        <p data-i18n="is-desc-1">Sistema de controle de estoque desenvolvido com metodologia Scrum, onde atuei como Product Owner. A solução oferece gestão de categorias e produtos, controle de entrada e saída e relatórios personalizados.</p>
-                        <p data-i18n="is-desc-2">Como PO, fui responsável pelo backlog do produto e priorização das user stories, além de mediar a comunicação entre stakeholders e equipe.</p>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="is-problem">A dificuldade de gerenciar movimentações de estoque de forma precisa, onde o controle descentralizado gerava inconsistências nos níveis de produtos e a ausência de relatórios atualizados impedia tomadas de decisão estratégicas.</p>
                     </div>
-                    <a href="https://github.com/BugBustersFatecSJC/inv.sort" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="is-solution">Sistema web completo para controle de estoque com gestão de categorias, produtos, fornecedores, fluxo de entrada/saída e dashboards analíticos personalizados.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/BugBustersFatecSJC/inv.sort" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github">Repositório da Equipe <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/MagNumGomes/inv.sort" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
                     
                     <div class="technologies">
                         <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Prisma</span><span class="tech-tag">Tailwind</span>
+                            <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Prisma ORM</span><span class="tech-tag">MySQL</span><span class="tech-tag">Tailwind CSS</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
                         <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
-                        <p data-i18n="is-contrib-1"><strong>Gestão de Produto:</strong> Definição de roadmap e priorização de features</p>
-                        <p data-i18n="is-contrib-2"><strong>Front-end:</strong> Desenvolvimento de componentes reutilizáveis com React</p>
-                        <p data-i18n="is-contrib-3"><strong>UI/UX:</strong> Implementação de interface responsiva com Tailwind CSS</p>
+                        <p data-i18n="is-contrib-1"><strong>Product Owner:</strong> Definição de roadmap, gestão do Product Backlog e priorização de User Stories.</p>
+                        <p data-i18n="is-contrib-2"><strong>Front-end:</strong> Desenvolvimento de componentes reutilizáveis e tabelas filtráveis com React.</p>
+                        <p data-i18n="is-contrib-3"><strong>UI/UX:</strong> Implementação de interface responsiva com Tailwind CSS.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="is-hard-1"><strong>React & Tailwind CSS (Fluente):</strong> Componentização, gerenciamento de estado, hooks e estilização utilitária.</p>
+                        <p data-i18n="is-hard-2"><strong>Node.js, Express & Prisma ORM (Desenvolvedor Autônomo):</strong> Integração com API REST e mapeamento objeto-relacional.</p>
                     </div>
                     
                     <div class="soft-skills">
-                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
-                        <p data-i18n="is-soft-1"><strong>Liderança:</strong> Coordenação de equipe de 8 desenvolvedores</p>
-                        <p data-i18n="is-soft-2"><strong>Gestão de Expectativas:</strong> Mediação entre stakeholders e time técnico</p>
-                        <p data-i18n="is-soft-3"><strong>Visão Estratégica:</strong> Alinhamento de entregas com objetivos de negócio</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="is-soft-1"><strong>Liderança:</strong> Coordenação do produto junto a uma equipe de 8 desenvolvedores.</p>
+                        <p data-i18n="is-soft-2"><strong>Gestão de Expectativas:</strong> Mediação contínua entre stakeholders e time técnico.</p>
+                        <p data-i18n="is-soft-3"><strong>Visão Estratégica:</strong> Alinhamento das entregas de cada sprint com os objetivos de negócio.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <!-- API 3: Checkpoint -->
+            <div class="project-card" data-category="api">
                 <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-api">Projeto Acadêmico (API)</span>
                     <h3>Checkpoint</h3>
-                    <p class="project-period">2025-1 | Scrum Team</p>
+                    <p class="project-period">2025-1 | 3º Semestre DSM • Scrum Team</p>
+                    <p class="project-partner" data-i18n="cp-partner"><i class="fas fa-handshake"></i> Empresa Parceira: Necto Systems</p>
                 </div>
                 <div class="project-body">
-                    <div class="project-description">
-                        <p data-i18n="cp-desc-1">Sistema de ponto eletrônico desenvolvido com Scrum em 3 sprints. A solução inclui registro de ponto, cálculo automático de horas, gestão de ausências e geração de relatórios.</p>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="cp-problem">A necessidade de monitorar, organizar e controlar a jornada de trabalho de colaboradores de forma transparente e em conformidade legal, eliminando falhas no cálculo de horas extras, banco de horas, folgas e solicitações de abono.</p>
                     </div>
-                    <a href="https://github.com/FR0M-ZER0/checkpoint" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="cp-solution">Sistema de ponto eletrônico web desenvolvido em 3 sprints com visões dedicadas para colaboradores e gestores, incluindo marcação online, cálculo automatizado de horas, notificações em tempo real (WebSockets) e relatórios gerenciais.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/FR0M-ZER0/checkpoint" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github">Repositório da Equipe <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/MagNumGomes/checkpoint" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
                     
                     <div class="technologies">
                         <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Spring Boot</span><span class="tech-tag">React TS</span><span class="tech-tag">MongoDB</span><span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Java</span><span class="tech-tag">Spring Boot</span><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">MySQL</span><span class="tech-tag">MongoDB</span><span class="tech-tag">AWS</span><span class="tech-tag">WebSockets</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
                         <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
-                        <p data-i18n="cp-contrib-1"><strong>Back-end:</strong> Implementação da lógica de cálculo de horas e banco de horas</p>
-                        <p data-i18n="cp-contrib-2"><strong>Front-end:</strong> Desenvolvimento de dashboards e relatórios gerenciais</p>
-                        <p data-i18n="cp-contrib-3"><strong>Integração:</strong> Conexão entre front-end e APIs back-end</p>
+                        <p data-i18n="cp-contrib-1"><strong>Back-end:</strong> Implementação da lógica de cálculo de horas trabalhadas, extras e banco de horas em Spring Boot.</p>
+                        <p data-i18n="cp-contrib-2"><strong>Front-end:</strong> Desenvolvimento de dashboards gerenciais e relatórios com React e TypeScript.</p>
+                        <p data-i18n="cp-contrib-3"><strong>Integração:</strong> Conexão entre front-end e APIs REST/WebSockets.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="cp-hard-1"><strong>Java & Spring Boot (Desenvolvedor Autônomo):</strong> Regras de negócio complexas e persistência híbrida (MySQL + MongoDB).</p>
+                        <p data-i18n="cp-hard-2"><strong>React & TypeScript (Fluente):</strong> Tipagem estática, Redux e consumo de APIs com Axios.</p>
                     </div>
                     
                     <div class="soft-skills">
-                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
-                        <p data-i18n="cp-soft-1"><strong>Resiliência Técnica:</strong> Aprendizado simultâneo de Java e TypeScript</p>
-                        <p data-i18n="cp-soft-2"><strong>Orientação a Detalhes:</strong> Cuidado com regras de negócio complexas</p>
-                        <p data-i18n="cp-soft-3"><strong>Colaboração:</strong> Trabalho em equipe com 5 desenvolvedores</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="cp-soft-1"><strong>Resiliência Técnica:</strong> Aprendizado simultâneo de Java/Spring e TypeScript.</p>
+                        <p data-i18n="cp-soft-2"><strong>Orientação a Detalhes:</strong> Rigor na implementação das regras trabalhistas de cálculo de horas.</p>
+                        <p data-i18n="cp-soft-3"><strong>Colaboração:</strong> Sinergia em equipe ágil de 5 desenvolvedores.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <!-- API 4: Nimbus -->
+            <div class="project-card" data-category="api">
                 <div class="project-header">
-                    <h3>CadastraHub</h3>
-                    <p class="project-period" data-i18n="ch-period">2025-1 | Projeto Acadêmico</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <p data-i18n="ch-desc-1">Plataforma de cadastro de produtos desenvolvida como projeto para a disciplina Desenvolvimento Web II, em parceria com um colega. Foco na resolução de processos manuais de uma empresa.</p>
-                        <p data-i18n="ch-desc-2">Desenvolvido sem metodologia ágil, com divisão natural de tarefas.</p>
-                    </div>
-                    <a href="https://github.com/MagNumGomes/CadastraHub" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
-                    
-                    <div class="technologies">
-                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Prisma</span><span class="tech-tag">MySQL</span><span class="tech-tag">JWT</span>
-                        </div>
-                    </div>
-                    
-                    <div class="contributions">
-                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
-                        <p data-i18n="ch-contrib-1"><strong>Back-end:</strong> Desenvolvimento do módulo de autenticação JWT</p>
-                        <p data-i18n="ch-contrib-2"><strong>API:</strong> Implementação de endpoints CRUD para produtos</p>
-                        <p data-i18n="ch-contrib-3"><strong>Integração:</strong> Conexão entre front-end e back-end</p>
-                    </div>
-                    
-                    <div class="soft-skills">
-                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
-                        <p data-i18n="ch-soft-1"><strong>Autogestão:</strong> Organização do tempo entre projeto e disciplinas</p>
-                        <p data-i18n="ch-soft-2"><strong>Comunicação:</strong> Alinhamento constante com parceiro de projeto</p>
-                        <p data-i18n="ch-soft-3"><strong>Adaptabilidade:</strong> Ajustes no escopo conforme feedback</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-api">Projeto Acadêmico (API)</span>
                     <h3>Nimbus</h3>
-                    <p class="project-period">2025-2 | Scrum Team</p>
+                    <p class="project-period">2025-2 | 4º Semestre DSM • Scrum Team</p>
+                    <p class="project-partner" data-i18n="nb-partner"><i class="fas fa-handshake"></i> Empresa Parceira: Tecsus</p>
                 </div>
                 <div class="project-body">
-                    <div class="project-description">
-                        <p data-i18n="nb-desc-1">Sistema IoT ponta a ponta voltado ao gerenciamento de dados meteorológicos estruturados. O ecossistema realiza a coleta, tratamento e persistência automatizada de dados.</p>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="nb-problem">A necessidade de coletar, validar e disponibilizar dados meteorológicos precisos a partir de estações IoT de baixo custo (ESP32), aliando monitoramento ambiental para prevenção de desastres naturais à educação prática em escolas públicas.</p>
                     </div>
-                    <a href="https://github.com/FR0M-ZER0/Nimbus" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="nb-solution">Ecossistema IoT ponta a ponta que realiza a ingestão periódica de sensores (vento, chuva, umidade, temperatura e pressão), tratamento automatizado, disparo de alertas em tempo real e exibição em dashboards educativos.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/FR0M-ZER0/Nimbus" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github">Repositório da Equipe <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/MagNumGomes/Nimbus" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
                     
                     <div class="technologies">
                         <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Docker</span><span class="tech-tag">React</span><span class="tech-tag">IoT</span>
+                            <span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">MongoDB</span><span class="tech-tag">Docker</span><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">IoT (ESP32)</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
                         <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
-                        <p data-i18n="nb-contrib-1"><strong>Infraestrutura & DB:</strong> Modelagem relacional e estruturação do banco de dados PostgreSQL</p>
-                        <p data-i18n="nb-contrib-2"><strong>Tratamento de Dados:</strong> Desenvolvimento de scripts para ingestão e normalização</p>
-                        <p data-i18n="nb-contrib-3"><strong>Metodologia:</strong> Planejamento dos entregáveis com foco em prazos rigorosos</p>
+                        <p data-i18n="nb-contrib-1"><strong>Infraestrutura & DB:</strong> Modelagem relacional e estruturação do banco de dados PostgreSQL.</p>
+                        <p data-i18n="nb-contrib-2"><strong>Tratamento de Dados:</strong> Desenvolvimento de scripts em Python para ingestão, validação e normalização de leituras.</p>
+                        <p data-i18n="nb-contrib-3"><strong>Metodologia:</strong> Planejamento técnico dos entregáveis com foco em prazos rigorosos.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="nb-hard-1"><strong>Python & Processamento de Dados (Fluente):</strong> Sanitização e ingestão automatizada de séries temporais IoT.</p>
+                        <p data-i18n="nb-hard-2"><strong>PostgreSQL & Docker (Desenvolvedor Autônomo):</strong> Modelagem relacional, containerização e orquestração de serviços.</p>
                     </div>
                     
                     <div class="soft-skills">
-                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
-                        <p data-i18n="nb-soft-1"><strong>Visão Holística:</strong> Entendimento do ciclo de transmissão de hardware para software</p>
-                        <p data-i18n="nb-soft-2"><strong>Pensamento Analítico:</strong> Validação de integridade de dados massivos</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="nb-soft-1"><strong>Visão Holística:</strong> Compreensão completa do ciclo de transmissão do hardware (ESP32) ao portal web.</p>
+                        <p data-i18n="nb-soft-2"><strong>Pensamento Analítico:</strong> Validação de integridade de dados massivos e tratamento de anomalias.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <!-- API 5: PrecedentIA -->
+            <div class="project-card" data-category="api">
                 <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-api">Projeto Acadêmico (API)</span>
                     <h3>PrecedentIA</h3>
-                    <p class="project-period" data-i18n="pr-period">2026-1 | Product Owner</p>
+                    <p class="project-period" data-i18n="pr-period">2026-1 | 5º Semestre DSM • Product Owner</p>
+                    <p class="project-partner" data-i18n="pr-partner"><i class="fas fa-handshake"></i> Empresa Parceira: Xertica.ai</p>
                 </div>
                 <div class="project-body">
-                    <div class="project-description">
-                        <p data-i18n="pr-desc-1">Plataforma inteligente de análise jurídica desenvolvida em parceria com a Xertica.ai. O sistema analisa petições jurídicas e recomenda precedentes judiciais assertivos.</p>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="pr-problem">A sobrecarga processual nos tribunais latino-americanos, onde magistrados despendem elevado tempo na triagem manual de petições iniciais e na busca por precedentes judiciais qualificados antes da análise de mérito.</p>
                     </div>
-                    <a href="https://github.com/FR0M-ZER0/PrecedentIA" class="project-link" target="_blank" data-i18n="view-github">Ver no GitHub <i class="fas fa-external-link-alt"></i></a>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="pr-solution">Plataforma inteligente de análise jurídica baseada em IA Generativa, RAG e busca vetorial que extrai os pontos-chave de petições iniciais e recomenda precedentes judiciais categorizados por aplicabilidade com síntese explicativa.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/FR0M-ZER0/PrecedentIA" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github">Repositório da Equipe <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/MagNumGomes/PrecedentIA" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
                     
                     <div class="technologies">
                         <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Node.js</span><span class="tech-tag">Python (AI)</span><span class="tech-tag">Dart</span><span class="tech-tag">Flutter</span><span class="tech-tag">Terraform</span><span class="tech-tag">Git Submodules</span>
+                            <span class="tech-tag">Dart</span><span class="tech-tag">Flutter</span><span class="tech-tag">Python (FastAPI / AI)</span><span class="tech-tag">RAG & Embeddings</span><span class="tech-tag">Terraform</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Qdrant</span><span class="tech-tag">Git Submodules</span>
                         </div>
                     </div>
                     
                     <div class="contributions">
                         <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
-                        <p data-i18n="pr-contrib-1"><strong>Product Owner:</strong> Priorização do backlog e alinhamento das entregas com a equipe e a Xertica.ai</p>
-                        <p data-i18n="pr-contrib-2"><strong>Dart & Flutter:</strong> Desenvolvimento de componentes e interfaces da aplicação</p>
-                        <p data-i18n="pr-contrib-3"><strong>DevOps & Terraform:</strong> Estruturação da infraestrutura como código e apoio ao deploy da solução</p>
+                        <p data-i18n="pr-contrib-1"><strong>Product Owner:</strong> Priorização do backlog e alinhamento estratégico das entregas entre a equipe e a Xertica.ai.</p>
+                        <p data-i18n="pr-contrib-2"><strong>Dart & Flutter:</strong> Desenvolvimento de componentes multiplataforma e interfaces da aplicação.</p>
+                        <p data-i18n="pr-contrib-3"><strong>DevOps & Terraform:</strong> Estruturação da infraestrutura como código (IaC) e automação de deploy.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="pr-hard-1"><strong>Flutter & Dart (Desenvolvedor Autônomo):</strong> Construção de interfaces multiplataforma modernas e responsivas.</p>
+                        <p data-i18n="pr-hard-2"><strong>Terraform, Cloud & Git Submodules (Desenvolvedor Autônomo):</strong> Provisionamento de infraestrutura como código e gestão de múltiplos repositórios.</p>
                     </div>
                     
                     <div class="soft-skills">
-                        <p class="skills-title" data-i18n="soft-skills-title">Soft Skills Desenvolvidas</p>
-                        <p data-i18n="pr-soft-1"><strong>Comunicação Corporativa:</strong> Alinhamento técnico com o cliente</p>
-                        <p data-i18n="pr-soft-2"><strong>Liderança Técnica:</strong> Condução das decisões de DevOps do time</p>
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="pr-soft-1"><strong>Comunicação Corporativa:</strong> Alinhamento técnico e tradução de demandas jurídicas junto ao cliente Xertica.ai.</p>
+                        <p data-i18n="pr-soft-2"><strong>Liderança Técnica:</strong> Condução das decisões de DevOps e entregas de produto do time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API 6: Sidebrain -->
+            <div class="project-card" data-category="api">
+                <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-api">Projeto Acadêmico (API)</span>
+                    <h3>Sidebrain</h3>
+                    <p class="project-partner" data-i18n="sb-partner"><i class="fas fa-brain"></i> Mentor virtual para aprendizagem de habilidades</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="sb-problem">A dificuldade de aprender novas habilidades sem saber por onde começar, definir objetivos claros ou acompanhar a própria evolução.</p>
+                    </div>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="sb-solution">Mentor virtual com IA e processamento de linguagem natural que sugere atividades personalizadas, acompanha o progresso e fornece feedback para apoiar o desenvolvimento de habilidades.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/FR0M-ZER0/Sidebrain" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github">Repositório da Equipe <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/MagNumGomes/Sidebrain" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
+
+                    <div class="technologies">
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">OpenAI API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.2.2. PROJETO PROFISSIONAL 1: NOCFlow -->
+            <div class="project-card" data-category="professional">
+                <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-prof">Projeto Profissional</span>
+                    <h3>NOCFlow – Automação SRE & NOC com IA</h3>
+                    <p class="project-period" data-i18n="nf-period">2025 - Atual | Analista de Monitoramento NOC</p>
+                    <p class="project-partner" data-i18n="nf-partner"><i class="fas fa-briefcase"></i> Vínculo Profissional: Atuação em NOC / SRE</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="nf-problem">A necessidade de reduzir o tempo médio de resposta (MTTR) e eliminar o retrabalho manual durante o tratamento de incidentes críticos no NOC, onde a transcrição de alertas do Zabbix, abertura de tickets no Movidesk e notificação às equipes consumiam minutos preciosos.</p>
+                    </div>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="nf-solution">Sistema desktop em Python (NOCFlow) que utiliza Visão Computacional via Google Gemini (IA multimodal) para extrair automaticamente dados de prints do Zabbix na área de transferência, preenche tickets ricos em HTML no Movidesk via Playwright e gera comunicados padronizados para WhatsApp, Teams e E-mail com um clique.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/MagNumGomes/NOCFlow" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
+                    
+                    <div class="technologies">
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span><span class="tech-tag">Google Gemini AI</span><span class="tech-tag">Playwright</span><span class="tech-tag">Tkinter</span><span class="tech-tag">Zabbix</span><span class="tech-tag">Movidesk</span><span class="tech-tag">Pillow</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contributions">
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="nf-contrib-1"><strong>Concepção & Arquitetura:</strong> Idealização e desenvolvimento integral da ferramenta aplicada à rotina real do NOC.</p>
+                        <p data-i18n="nf-contrib-2"><strong>IA & Automação:</strong> Integração com a API do Google Gemini 1.5 Flash e automação de navegador com Playwright.</p>
+                        <p data-i18n="nf-contrib-3"><strong>Interface Desktop:</strong> Construção da GUI em Tkinter com gestão de área de transferência (Pillow/Pyperclip).</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="nf-hard-1"><strong>Python, Playwright & Gemini AI (Fluente):</strong> Automação RPA/SRE e integração de modelos multimodais.</p>
+                        <p data-i18n="nf-hard-2"><strong>Zabbix & Gestão de Incidentes (Fluente):</strong> Triagem de alertas, análise de severidade e operação de ferramentas ITSM.</p>
+                    </div>
+                    
+                    <div class="soft-skills">
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="nf-soft-1"><strong>Proatividade e Inovação:</strong> Identificação de gargalos operacionais no trabalho e criação autônoma de solução.</p>
+                        <p data-i18n="nf-soft-2"><strong>Foco em Eficiência:</strong> Padronização da comunicação técnica sob pressão em cenários de incidentes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.2.2. PROJETO PROFISSIONAL 2: Lab Zabbix 7 -->
+            <div class="project-card" data-category="professional">
+                <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-prof">Projeto Profissional</span>
+                    <h3>Infraestrutura & Lab Zabbix 7.0 LTS</h3>
+                    <p class="project-period" data-i18n="lz-period">2025 - 2026 | Projeto Aplicado ao NOC / Observabilidade</p>
+                    <p class="project-partner" data-i18n="lz-partner"><i class="fas fa-server"></i> Contexto: Engenharia de Monitoramento & SRE</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="lz-problem">A necessidade de simular, validar e homologar cenários complexos de monitoramento corporativo distribuído, alta disponibilidade de coleta, segurança de acesso e gestão de SLA sem impactar ambientes produtivos.</p>
+                    </div>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="lz-solution">Ambiente completo de laboratório baseado em Zabbix 7.0 LTS em arquitetura híbrida (Docker Compose v2, Host Windows e VMs Linux), provisionado via API com múltiplos métodos de coleta (Agent clássico/ativo, Agent 2, MySQL e Docker nativos), Proxies Zabbix, RBAC, MFA TOTP, esteira de alertas com webhooks e dashboards executivos de SLA.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/MagNumGomes/lab-zabbix-7" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
+                    
+                    <div class="technologies">
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Zabbix 7.0 LTS</span><span class="tech-tag">Docker Compose</span><span class="tech-tag">PowerShell</span><span class="tech-tag">Zabbix API</span><span class="tech-tag">Linux</span><span class="tech-tag">MySQL</span><span class="tech-tag">Webhooks</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contributions">
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="lz-contrib-1"><strong>Automação via API & PowerShell:</strong> Scripts para provisionamento automatizado de hosts, templates, triggers e regras de monitoramento.</p>
+                        <p data-i18n="lz-contrib-2"><strong>Arquitetura Híbrida:</strong> Orquestração com Docker Compose, Zabbix Proxy SQLite e agentes em Windows/Linux.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="lz-hard-1"><strong>Zabbix 7.0 LTS & Observabilidade (Fluente):</strong> Configuração avançada de proxies, descoberta automática, SLA e webhooks.</p>
+                        <p data-i18n="lz-hard-2"><strong>Docker, Linux & PowerShell (Desenvolvedor Autônomo):</strong> Automação de infraestrutura e administração de sistemas.</p>
+                    </div>
+                    
+                    <div class="soft-skills">
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="lz-soft-1"><strong>Documentação Técnica:</strong> Criação de guia passo a passo detalhado de arquitetura e operação.</p>
+                        <p data-i18n="lz-soft-2"><strong>Visão Sistêmica:</strong> Planejamento de segurança (RBAC/MFA) e janelas de manutenção.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.2.3. PROJETO PESSOAL: Grimório -->
+            <div class="project-card" data-category="personal">
+                <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-personal">Projeto Pessoal</span>
+                    <h3>Grimório – Organizador Pessoal Mobile</h3>
+                    <p class="project-period" data-i18n="gr-period">2025 - 2026 | Projeto Pessoal</p>
+                    <p class="project-partner" data-i18n="gr-partner"><i class="fas fa-mobile-alt"></i> Aplicação Mobile Android (Offline-first)</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="gr-problem">A necessidade de organizar tarefas cotidianas, checklists e projetos de longo prazo em um dispositivo móvel com total autonomia offline, privacidade de dados locais e uma experiência visual imersiva livre de distrações.</p>
+                    </div>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="gr-solution">Aplicativo mobile Android desenvolvido com React Native, Expo e TypeScript que reúne lista de tarefas, quadros Kanban, agrupamento por projetos/pastas e visão diária planejada.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/MagNumGomes/Grimorio" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
+                    
+                    <div class="technologies">
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React Native</span><span class="tech-tag">Expo</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Android APK</span><span class="tech-tag">Offline-First</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contributions">
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="gr-contrib-1"><strong>Desenvolvimento Mobile Completo:</strong> Arquitetura offline-first, navegação, persistência local e geração de APK.</p>
+                        <p data-i18n="gr-contrib-2"><strong>Product Design & UI/UX:</strong> Criação da identidade visual, backlog evolutivo e prototipação.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="gr-hard-1"><strong>React Native, Expo & TypeScript (Desenvolvedor Autônomo):</strong> Desenvolvimento mobile multiplataforma e tipagem estrita.</p>
+                    </div>
+                    
+                    <div class="soft-skills">
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="gr-soft-1"><strong>Autogestão de Produto:</strong> Separação clara entre MVP implementado e roadmap futuro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2.2.3. OUTRO PROJETO ACADÊMICO: CadastraHub -->
+            <div class="project-card" data-category="personal">
+                <div class="project-header">
+                    <span class="project-badge" data-i18n="badge-acad">Projeto de Disciplina</span>
+                    <h3>CadastraHub</h3>
+                    <p class="project-period" data-i18n="ch-period">2025-1 | Desenvolvimento Web II</p>
+                    <p class="project-partner" data-i18n="ch-partner"><i class="fas fa-university"></i> Orientação: Prof. Cláudio Etelvino (FATEC SJC)</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-problem"><i class="fas fa-exclamation-circle"></i> Situação-Problema</p>
+                        <p data-i18n="ch-problem">A lentidão e inconsistência causadas pelo controle manual de catálogo de produtos em pequenas empresas, dificultando a consulta rápida e a segurança no acesso aos registros.</p>
+                    </div>
+                    <div class="project-block">
+                        <p class="block-label" data-i18n="label-solution"><i class="fas fa-lightbulb"></i> Solução Desenvolvida</p>
+                        <p data-i18n="ch-solution">Plataforma web full stack para cadastro, edição, pesquisa e gerenciamento seguro de produtos com autenticação via token JWT.</p>
+                    </div>
+
+                    <div class="project-links-row">
+                        <a href="https://github.com/MagNumGomes/CadastraHub" class="project-link" target="_blank" rel="noopener noreferrer" data-i18n="view-github-personal">Repositório Pessoal <i class="fas fa-code-branch"></i></a>
+                    </div>
+                    
+                    <div class="technologies">
+                        <p class="tech-title" data-i18n="tech-used">Tecnologias Utilizadas</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Prisma ORM</span><span class="tech-tag">MySQL</span><span class="tech-tag">JWT</span><span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contributions">
+                        <p class="contrib-title" data-i18n="personal-contrib">Contribuições Pessoais</p>
+                        <p data-i18n="ch-contrib-1"><strong>Back-end:</strong> Desenvolvimento do módulo de autenticação segura com JWT.</p>
+                        <p data-i18n="ch-contrib-2"><strong>API REST:</strong> Implementação dos endpoints CRUD com Node.js, Express e Prisma ORM.</p>
+                        <p data-i18n="ch-contrib-3"><strong>Integração:</strong> Conexão entre front-end e banco de dados MySQL.</p>
+                    </div>
+
+                    <div class="hard-skills">
+                        <p class="skills-title" data-i18n="hard-skills-title">Habilidades Técnicas Adquiridas (Hard Skills)</p>
+                        <p data-i18n="ch-hard-1"><strong>Node.js, Express, Prisma & JWT (Fluente):</strong> Construção de APIs RESTful autenticadas.</p>
+                    </div>
+                    
+                    <div class="soft-skills">
+                        <p class="skills-title" data-i18n="soft-skills-title">Habilidades Pessoais e Sociais (Soft Skills)</p>
+                        <p data-i18n="ch-soft-1"><strong>Autogestão e Parceria:</strong> Divisão natural de responsabilidades e entregas em dupla.</p>
                     </div>
                 </div>
             </div>
@@ -783,264 +576,213 @@
         </div>
     </section>
 
+    <!-- Competências Técnicas Categorizadas (Observação 2 do PDF) -->
     <section id="knowledge">
-        <h2 class="section-title" data-i18n="section-knowledge-title">Meus Principais Conhecimentos</h2>
+        <h2 class="section-title" data-i18n="section-knowledge-title">Competências Técnicas (Hard Skills)</h2>
+        <p class="section-subtitle" data-i18n="section-knowledge-subtitle">Competências agrupadas por área de atuação.</p>
+
         <div class="knowledge-container">
+            <!-- 01. Linguagens -->
             <div class="knowledge-card">
-                <div class="knowledge-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Observability (DevOps)</h3>
+                <div class="knowledge-card-header">
+                    <div class="knowledge-icon"><i class="fas fa-terminal"></i></div>
+                    <h3 data-i18n="cat-lang">Linguagens de Programação</h3>
+                </div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span class="skill-name">JavaScript (ES6+)</span></li>
+                    <li class="skill-item"><span class="skill-name">TypeScript</span></li>
+                    <li class="skill-item"><span class="skill-name">Python</span></li>
+                    <li class="skill-item"><span class="skill-name">SQL</span></li>
+                    <li class="skill-item"><span class="skill-name">Java</span></li>
+                    <li class="skill-item"><span class="skill-name">Dart</span></li>
+                    <li class="skill-item"><span class="skill-name">C# / PowerShell / Shell</span></li>
+                </ul>
             </div>
+
+            <!-- 02. Front-end & Mobile -->
             <div class="knowledge-card">
-                <div class="knowledge-icon"><i class="fas fa-code"></i></div>
-                <h3>Frontend</h3>
+                <div class="knowledge-card-header">
+                    <div class="knowledge-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 data-i18n="cat-front">Front-end & Mobile</h3>
+                </div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span class="skill-name">HTML5 & CSS3</span></li>
+                    <li class="skill-item"><span class="skill-name">React.js</span></li>
+                    <li class="skill-item"><span class="skill-name">Tailwind CSS</span></li>
+                    <li class="skill-item"><span class="skill-name">React Native & Expo</span></li>
+                    <li class="skill-item"><span class="skill-name">Flutter</span></li>
+                    <li class="skill-item"><span class="skill-name">Figma & UI/UX Design</span></li>
+                </ul>
             </div>
+
+            <!-- 03. Back-end & APIs -->
             <div class="knowledge-card">
-                <div class="knowledge-icon"><i class="fas fa-server"></i></div>
-                <h3>Backend</h3>
+                <div class="knowledge-card-header">
+                    <div class="knowledge-icon"><i class="fas fa-server"></i></div>
+                    <h3 data-i18n="cat-back">Back-end & APIs</h3>
+                </div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span class="skill-name">Node.js & Express</span></li>
+                    <li class="skill-item"><span class="skill-name">Prisma ORM</span></li>
+                    <li class="skill-item"><span class="skill-name">Flask / FastAPI (Python)</span></li>
+                    <li class="skill-item"><span class="skill-name">Spring Boot (Java)</span></li>
+                    <li class="skill-item"><span class="skill-name">REST APIs, JWT & WebSockets</span></li>
+                </ul>
             </div>
+
+            <!-- 04. Bancos de Dados -->
             <div class="knowledge-card">
-                <div class="knowledge-icon"><i class="fas fa-project-diagram"></i></div>
-                <h3 data-i18n="know-pm">Gestão de Projetos de TI</h3>
+                <div class="knowledge-card-header">
+                    <div class="knowledge-icon"><i class="fas fa-database"></i></div>
+                    <h3 data-i18n="cat-db">Bancos de Dados</h3>
+                </div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span class="skill-name">MySQL</span></li>
+                    <li class="skill-item"><span class="skill-name">PostgreSQL</span></li>
+                    <li class="skill-item"><span class="skill-name">MongoDB (NoSQL)</span></li>
+                    <li class="skill-item"><span class="skill-name">Qdrant / Redis</span></li>
+                </ul>
             </div>
+
+            <!-- 05. DevOps, NOC & Cloud -->
             <div class="knowledge-card">
-                <div class="knowledge-icon"><i class="fas fa-paint-brush"></i></div>
-                <h3>UX/UI</h3>
+                <div class="knowledge-card-header">
+                    <div class="knowledge-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 data-i18n="cat-devops">DevOps, NOC & Cloud</h3>
+                </div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span class="skill-name">Zabbix 7 & Observabilidade</span></li>
+                    <li class="skill-item"><span class="skill-name">Git & GitHub (Submodules/Actions)</span></li>
+                    <li class="skill-item"><span class="skill-name">Docker & Docker Compose</span></li>
+                    <li class="skill-item"><span class="skill-name">Terraform (IaC) & AWS</span></li>
+                    <li class="skill-item"><span class="skill-name">Linux & Redes / Firewall</span></li>
+                </ul>
             </div>
+
+            <!-- 06. IA, Automação & Gestão -->
             <div class="knowledge-card">
-                <div class="knowledge-icon"><i class="fas fa-robot"></i></div>
-                <h3>AI Agents</h3>
+                <div class="knowledge-card-header">
+                    <div class="knowledge-icon"><i class="fas fa-robot"></i></div>
+                    <h3 data-i18n="cat-other">IA, Gestão & Outras Tecnologias</h3>
+                </div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span class="skill-name">Scrum (Product Owner / Dev Team)</span></li>
+                    <li class="skill-item"><span class="skill-name">Playwright & Automação RPA</span></li>
+                    <li class="skill-item"><span class="skill-name">Google Gemini API / AI Agents / RAG</span></li>
+                    <li class="skill-item"><span class="skill-name">Data Mining, NLP & TDD (Pytest)</span></li>
+                </ul>
             </div>
         </div>
     </section>
 
+    <!-- 3. Informações Curriculares (Formação, Experiência, Certificados e Eventos) -->
+    <section id="curriculum">
+        <h2 class="section-title" data-i18n="section-curriculum-title">Informações Curriculares</h2>
+        <p class="section-subtitle" data-i18n="section-curriculum-subtitle">Formação acadêmica, experiência profissional, certificações técnicas, idiomas e participações em eventos.</p>
+
+        <div class="curriculum-grid">
+            <!-- Coluna 1: Formação e Experiência -->
+            <div class="curriculum-column">
+                <h3 data-i18n="curr-edu-title"><i class="fas fa-graduation-cap"></i> Formação Acadêmica & Profissional</h3>
+                <ol class="timeline-list">
+                    <li class="timeline-item">
+                        <span class="timeline-date" data-i18n="edu-1-date">2024 - 2026 (Cursando)</span>
+                        <h4 data-i18n="edu-1-title">Tecnólogo em Desenvolvimento de Software Multiplataforma (DSM)</h4>
+                        <p class="timeline-org" data-i18n="edu-1-org">FATEC São José dos Campos – Prof. Jessen Vidal</p>
+                        <p data-i18n="edu-1-desc">Formação focada em engenharia de software, desenvolvimento web e mobile full stack, computação em nuvem, DevOps, banco de dados, inteligência artificial e metodologia ágil Scrum.</p>
+                    </li>
+                    <li class="timeline-item">
+                        <span class="timeline-date" data-i18n="exp-1-date">Fev. 2025 – Atual</span>
+                        <h4 data-i18n="exp-1-title">NOC (Network Operations Center) / Observability</h4>
+                        <p class="timeline-org" data-i18n="exp-1-org">Dataside · Trainee</p>
+                        <p data-i18n="exp-1-desc">Monitoramento proativo de infraestrutura de TI e serviços críticos com Zabbix, triagem e resposta a incidentes, automação de processos operacionais (SRE/RPA com Python e IA) e gestão de SLA.</p>
+                    </li>
+                    <li class="timeline-item">
+                        <span class="timeline-date" data-i18n="edu-2-date">Formação Complementar</span>
+                        <h4 data-i18n="edu-2-title">Programação em C# / Cursos Técnicos</h4>
+                        <p class="timeline-org" data-i18n="edu-2-org">SENAI São José dos Campos</p>
+                        <p data-i18n="edu-2-desc">Desenvolvimento de lógica de programação e aplicações em C# (.NET).</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Coluna 2: Certificações, Idiomas e Eventos (Com campos em branco prontos para preencher) -->
+            <div class="curriculum-column">
+                <h3 data-i18n="curr-cert-title"><i class="fas fa-certificate"></i> Certificações, Cursos & Idiomas</h3>
+                
+                <div class="placeholder-box" data-i18n="cert-placeholder-1">
+                    <strong>Gestão de Projetos de TI</strong> — Fundação FAT (ago. 2025)
+                </div>
+                <div class="placeholder-box" data-i18n="cert-placeholder-2">
+                    <strong>Design Thinking para UX Designers: construindo produtos relevantes</strong> — EBAC (abr. 2025)
+                </div>
+                <div class="placeholder-box" data-i18n="cert-placeholder-3">
+                    <strong>Implantação de Serviços em Nuvem - AWS Cloud Practitioner Foundational</strong> — SENAI São José dos Campos (dez. 2024)
+                </div>
+
+                <div class="languages-grid">
+                    <div class="lang-card">
+                        <h4 data-i18n="lang-pt">Português</h4>
+                        <span data-i18n="lang-pt-lvl">Fluente / Nativo</span>
+                    </div>
+                    <div class="lang-card">
+                        <h4 data-i18n="lang-en">Inglês</h4>
+                        <span data-i18n="lang-en-lvl">Nível intermediário</span>
+                    </div>
+                    <div class="lang-card">
+                        <h4 data-i18n="lang-it">Italiano</h4>
+                        <span data-i18n="lang-it-lvl">Nível básico</span>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;" data-i18n="curr-events-title"><i class="fas fa-calendar-check"></i> Eventos, Trabalhos & Publicações</h3>
+                
+                <div class="placeholder-box" data-i18n="event-placeholder-1">
+                    <strong>18ª Edição da Escola de Inovadores (2024-1)</strong> — Centro Paula Souza (jun. 2024)
+                </div>
+                <div class="placeholder-box" data-i18n="event-placeholder-2">
+                    <strong>Certificado de Participação — 2º Science</strong> — Even3 (jul. 2024)
+                </div>
+                <div class="placeholder-box" data-i18n="event-placeholder-3">
+                    <strong>Apresentação do projeto PrecedentIA</strong> — equipe DSM/FATEC (25 jun. 2026)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Informações de Contato -->
     <section id="contact">
-        <h2 class="section-title" data-i18n="section-contact-title">Contatos</h2>
+        <h2 class="section-title" data-i18n="section-contact-title">Informações de Contato</h2>
+        <p class="section-subtitle" data-i18n="section-contact-subtitle">Entre em contato comigo pelas redes sociais, GitHub ou e-mail.</p>
         <div class="contacts-container">
-            <a href="https://www.linkedin.com/in/joaovitorgoes/" class="contact-link" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
+            <a href="https://www.linkedin.com/in/joaovitorgoes/" class="contact-card" target="_blank" rel="noopener noreferrer">
+                <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                <div class="contact-info">
+                    <h4>LinkedIn</h4>
+                    <p>linkedin.com/in/joaovitorgoes</p>
+                </div>
             </a>
-            <a href="https://github.com/MagNumGomes" class="contact-link" target="_blank">
-                <i class="fab fa-github"></i>
+            <a href="https://github.com/MagNumGomes" class="contact-card" target="_blank" rel="noopener noreferrer">
+                <div class="contact-icon"><i class="fab fa-github"></i></div>
+                <div class="contact-info">
+                    <h4>GitHub</h4>
+                    <p>github.com/MagNumGomes</p>
+                </div>
+            </a>
+            <a href="mailto:joaogg10@gmail.com" class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div class="contact-info">
+                    <h4>E-mail</h4>
+                    <p>joaogg10@gmail.com</p>
+                </div>
             </a>
         </div>
     </section>
 
     <footer>
-        <p data-i18n="footer-text">&copy; 2026 Portfólio de João Vítor Góes Gomes. Todos os direitos reservados.</p>
+        <p data-i18n="footer-text">&copy; 2026 Portfólio Acadêmico Digital de João Vítor Góes Gomes • FATEC SJC.</p>
     </footer>
 
-    <script>
-        const i18nData = {
-            pt: {
-                "nav-portfolio": "Portfólio", "nav-projects": "Projetos", "nav-knowledge": "Conhecimentos", "nav-contact": "Contatos",
-                "hero-greeting": "Olá, sou o João Vítor Góes Gomes!",
-                "hero-desc": "Estudante de Desenvolvimento de Software Multiplataforma, Analista de Monitoramento em NOC e estas são minhas experiências como aluno na Fatec SJC.",
-                "section-projects-title": "Meus Projetos", "tech-used": "Tecnologias Utilizadas", "personal-contrib": "Contribuições Pessoais",
-                "soft-skills-title": "Soft Skills Desenvolvidas", "view-github": "Ver no GitHub <i class='fas fa-external-link-alt'></i>",
-                "ch-period": "2025-1 | Projeto Acadêmico", "pr-period": "2026-1 | Product Owner",
-                
-                "sf-desc-1": "Meu primeiro contato com programação, desenvolvido em equipe usando metodologia Scrum. Aplicação web para monitoramento de estufa inteligente que coleta e exibe dados de umidade ambiente e do solo, temperatura ambiente e volume de água.",
-                "sf-desc-2": "Como membro da equipe, participei ativamente das cerimônias Scrum (Daily, Planning, Review e Retrospective).",
-                "sf-contrib-1": "<strong>Flask:</strong> Configuração inicial do servidor web e rotas básicas",
-                "sf-contrib-2": "<strong>MySQL:</strong> Modelagem do banco de dados",
-                "sf-contrib-3": "<strong>Front-end:</strong> Criação de interfaces para visualização dos dados",
-                "sf-soft-1": "<strong>Trabalho em equipe:</strong> Colaboração eficaz em ambiente Scrum com 8 desenvolvedores",
-                "sf-soft-2": "<strong>Adaptabilidade:</strong> Aprendizado rápido de novas tecnologias durante o projeto",
-                "sf-soft-3": "<strong>Comunicação:</strong> Participação ativa nas cerimônias ágeis e documentação do projeto",
-                
-                "is-desc-1": "Sistema de controle de estoque desenvolvido com metodologia Scrum, onde atuei como Product Owner. A solução oferece gestão de categorias e produtos, controle de entrada e saída e relatórios personalizados.",
-                "is-desc-2": "Como PO, fui responsável pelo backlog do produto e priorização das user stories, além de mediar a comunicação entre stakeholders e equipe.",
-                "is-contrib-1": "<strong>Gestão de Produto:</strong> Definição de roadmap e priorização de features",
-                "is-contrib-2": "<strong>Front-end:</strong> Desenvolvimento de componentes reutilizáveis com React",
-                "is-contrib-3": "<strong>UI/UX:</strong> Implementação de interface responsiva com Tailwind CSS",
-                "is-soft-1": "<strong>Liderança:</strong> Coordenação de equipe de 8 desenvolvedores",
-                "is-soft-2": "<strong>Gestão de Expectativas:</strong> Mediação entre stakeholders e time técnico",
-                "is-soft-3": "<strong>Visão Estratégica:</strong> Alinhamento de entregas com objetivos de negócio",
-
-                "cp-desc-1": "Sistema de ponto eletrônico desenvolvido com Scrum em 3 sprints. A solução inclui registro de ponto, cálculo automático de horas, gestão de ausências e geração de relatórios.",
-                "cp-contrib-1": "<strong>Back-end:</strong> Implementação da lógica de cálculo de horas e banco de horas",
-                "cp-contrib-2": "<strong>Front-end:</strong> Desenvolvimento de dashboards e relatórios gerenciais",
-                "cp-contrib-3": "<strong>Integração:</strong> Conexão entre front-end e APIs back-end",
-                "cp-soft-1": "<strong>Resiliência Técnica:</strong> Aprendizado simultâneo de Java e TypeScript",
-                "cp-soft-2": "<strong>Orientação a Detalhes:</strong> Cuidado com regras de negócio complexas",
-                "cp-soft-3": "<strong>Colaboração:</strong> Trabalho em equipe com 5 desenvolvedores",
-
-                "ch-desc-1": "Plataforma de cadastro de produtos desenvolvida como projeto para a disciplina Desenvolvimento Web II, em parceria com um colega. Foco na resolução de processos manuais de uma empresa.",
-                "ch-desc-2": "Desenvolvido sem metodologia ágil, com divisão natural de tarefas.",
-                "ch-contrib-1": "<strong>Back-end:</strong> Desenvolvimento do módulo de autenticação JWT",
-                "ch-contrib-2": "<strong>API:</strong> Implementação de endpoints CRUD para produtos",
-                "ch-contrib-3": "<strong>Integração:</strong> Conexão entre front-end e back-end",
-                "ch-soft-1": "<strong>Autogestão:</strong> Organização do tempo entre projeto e disciplinas",
-                "ch-soft-2": "<strong>Comunicação:</strong> Alinhamento constante com parceiro de projeto",
-                "ch-soft-3": "<strong>Adaptabilidade:</strong> Ajustes no escopo conforme feedback",
-
-                "nb-desc-1": "Sistema IoT ponta a ponta voltado ao gerenciamento de dados meteorológicos estruturados. O ecossistema realiza a coleta, tratamento e persistência automatizada de dados.",
-                "nb-contrib-1": "<strong>Infraestrutura & DB:</strong> Modelagem relacional e estruturação do banco de dados PostgreSQL",
-                "nb-contrib-2": "<strong>Tratamento de Dados:</strong> Desenvolvimento de scripts para ingestão e normalização",
-                "nb-contrib-3": "<strong>Metodologia:</strong> Planejamento dos entregáveis com foco em prazos rigorosos",
-                "nb-soft-1": "<strong>Visão Holística:</strong> Entendimento do ciclo de transmissão de hardware para software",
-                "nb-soft-2": "<strong>Pensamento Analítico:</strong> Validação de integridade de dados massivos",
-
-                "pr-desc-1": "Plataforma inteligente de análise jurídica desenvolvida em parceria com a Xertica.ai. O sistema analisa petições jurídicas e recomenda precedentes judiciais assertivos.",
-                "pr-contrib-1": "<strong>Product Owner:</strong> Priorização do backlog e alinhamento das entregas com a equipe e a Xertica.ai",
-                "pr-contrib-2": "<strong>Dart & Flutter:</strong> Desenvolvimento de componentes e interfaces da aplicação",
-                "pr-contrib-3": "<strong>DevOps & Terraform:</strong> Estruturação da infraestrutura como código e apoio ao deploy da solução",
-                "pr-soft-1": "<strong>Comunicação Corporativa:</strong> Alinhamento técnico com o cliente",
-                "pr-soft-2": "<strong>Liderança Técnica:</strong> Condução das decisões de DevOps do time",
-
-                "section-knowledge-title": "Meus Principais Conhecimentos", "know-pm": "Gestão de Projetos de TI",
-                "section-contact-title": "Contatos",
-                "footer-text": "&copy; 2026 Portfólio de João Vítor Góes Gomes. Todos os direitos reservados."
-            },
-            en: {
-                "nav-portfolio": "Portfolio", "nav-projects": "Projects", "nav-knowledge": "Knowledge", "nav-contact": "Contact",
-                "hero-greeting": "Hi, I'm João Vítor Góes Gomes!",
-                "hero-desc": "Multiplatform Software Development student, NOC Monitoring Analyst, and these are my experiences as a Fatec SJC student.",
-                "section-projects-title": "My Projects", "tech-used": "Technologies Used", "personal-contrib": "Personal Contributions",
-                "soft-skills-title": "Soft Skills Developed", "view-github": "View on GitHub <i class='fas fa-external-link-alt'></i>",
-                "ch-period": "2025-1 | Academic Project", "pr-period": "2026-1 | Product Owner",
-
-                "sf-desc-1": "My first coding project, developed in a team using Scrum. A web application for smart greenhouse monitoring that tracks ambient/soil moisture, temperature, and water volume.",
-                "sf-desc-2": "Actively participated in all Scrum ceremonies (Daily, Planning, Review, and Retrospective).",
-                "sf-contrib-1": "<strong>Flask:</strong> Initial web server setup and basic routes",
-                "sf-contrib-2": "<strong>MySQL:</strong> Database modeling",
-                "sf-contrib-3": "<strong>Front-end:</strong> Data visualization interfaces creation",
-                "sf-soft-1": "<strong>Teamwork:</strong> Effective collaboration in a Scrum environment with 8 developers",
-                "sf-soft-2": "<strong>Adaptability:</strong> Fast learning of new technologies",
-                "sf-soft-3": "<strong>Communication:</strong> Active participation in agile ceremonies",
-
-                "is-desc-1": "Inventory control system developed with Scrum methodology, where I acted as Product Owner. Offers product management, in/out control, and custom reports.",
-                "is-desc-2": "As PO, I managed the product backlog, prioritized user stories, and mediated communication between stakeholders and the team.",
-                "is-contrib-1": "<strong>Product Management:</strong> Roadmap definition and feature prioritization",
-                "is-contrib-2": "<strong>Front-end:</strong> Reusable components development with React",
-                "is-contrib-3": "<strong>UI/UX:</strong> Responsive interface implementation with Tailwind CSS",
-                "is-soft-1": "<strong>Leadership:</strong> Coordination of an 8-developer team",
-                "is-soft-2": "<strong>Expectation Management:</strong> Mediation between stakeholders and tech team",
-                "is-soft-3": "<strong>Strategic Vision:</strong> Aligning deliverables with business goals",
-
-                "cp-desc-1": "Electronic time tracking system developed with Scrum in 3 sprints. Includes time logging, automatic hours calculation, absence management, and report generation.",
-                "cp-contrib-1": "<strong>Back-end:</strong> Hours calculation logic and time bank implementation",
-                "cp-contrib-2": "<strong>Front-end:</strong> Managerial dashboards and reports development",
-                "cp-contrib-3": "<strong>Integration:</strong> Front-end to back-end APIs connection",
-                "cp-soft-1": "<strong>Technical Resilience:</strong> Simultaneous learning of Java and TypeScript",
-                "cp-soft-2": "<strong>Detail Orientation:</strong> Care with complex business rules",
-                "cp-soft-3": "<strong>Collaboration:</strong> Teamwork with 5 developers",
-
-                "ch-desc-1": "Product registration platform developed for the Web Development II course. Focused on solving manual process issues for a company.",
-                "ch-desc-2": "Developed without agile methodology, with a natural division of tasks between partners.",
-                "ch-contrib-1": "<strong>Back-end:</strong> JWT authentication module development",
-                "ch-contrib-2": "<strong>API:</strong> CRUD endpoints implementation for products",
-                "ch-contrib-3": "<strong>Integration:</strong> Front-end to back-end connection",
-                "ch-soft-1": "<strong>Self-management:</strong> Time organization between project and college",
-                "ch-soft-2": "<strong>Communication:</strong> Constant alignment with project partner",
-                "ch-soft-3": "<strong>Adaptability:</strong> Scope adjustments based on feedback",
-
-                "nb-desc-1": "End-to-end IoT system for structured meteorological data management. Handles automated collection, processing, and persistence of climate data.",
-                "nb-contrib-1": "<strong>Infrastructure & DB:</strong> Relational modeling and PostgreSQL database structuring",
-                "nb-contrib-2": "<strong>Data Processing:</strong> Ingestion and normalization scripts development",
-                "nb-contrib-3": "<strong>Methodology:</strong> Deliverables planning focusing on strict deadlines",
-                "nb-soft-1": "<strong>Holistic Vision:</strong> Complete hardware-to-software cycle understanding",
-                "nb-soft-2": "<strong>Analytical Thinking:</strong> Massive data integrity validation",
-
-                "pr-desc-1": "Intelligent legal analysis platform developed with Xertica.ai. The system analyzes legal petitions and autonomously recommends judicial precedents.",
-                "pr-contrib-1": "<strong>Product Owner:</strong> Backlog prioritization and delivery alignment with the team and Xertica.ai",
-                "pr-contrib-2": "<strong>Dart & Flutter:</strong> Development of application components and interfaces",
-                "pr-contrib-3": "<strong>DevOps & Terraform:</strong> Infrastructure as code setup and deployment support for the solution",
-                "pr-soft-1": "<strong>Corporate Communication:</strong> Technical alignment with the client",
-                "pr-soft-2": "<strong>Technical Leadership:</strong> Leading team's DevOps decisions",
-
-                "section-knowledge-title": "My Core Knowledge", "know-pm": "IT Project Management",
-                "section-contact-title": "Contact",
-                "footer-text": "&copy; 2026 João Vítor Góes Gomes Portfolio. All rights reserved."
-            }
-        };
-
-        let currentLang = 'pt';
-        const btnPt = document.getElementById('btn-pt');
-        const btnEn = document.getElementById('btn-en');
-        
-        const rolesPt = ["Desenvolvedor Full Stack", "Analista de NOC (Network Operations Center)"];
-        const rolesEn = ["Full Stack Developer", "NOC (Network Operations Center) Analyst"];
-        
-        let currentRoles = rolesPt;
-        let roleIndex = 0;
-        let typingTimeout;
-        let i = 0; 
-        let isDeleting = false;
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            btnPt.classList.toggle('active', lang === 'pt');
-            btnEn.classList.toggle('active', lang === 'en');
-
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18nData[lang][key]) {
-                    el.innerHTML = i18nData[lang][key];
-                }
-            });
-
-            currentRoles = lang === 'pt' ? rolesPt : rolesEn;
-            roleIndex = 0;
-            const terminalText = document.getElementById('terminal-text');
-            terminalText.textContent = '';
-            i = 0; 
-            isDeleting = false;
-            clearTimeout(typingTimeout);
-            typeTerminalText();
-        }
-
-        btnPt.addEventListener('click', () => setLanguage('pt'));
-        btnEn.addEventListener('click', () => setLanguage('en'));
-
-        function typeTerminalText() {
-            const terminalText = document.getElementById('terminal-text');
-            const currentRole = currentRoles[roleIndex];
-            
-            terminalText.textContent = currentRole.substring(0, i);
-            let speed = 150; 
-            
-            if (!isDeleting && i === currentRole.length) {
-                isDeleting = true; 
-                speed = 6000; 
-            } else if (isDeleting && i === 0) {
-                isDeleting = false; 
-                roleIndex = (roleIndex + 1) % currentRoles.length;
-                speed = 1000; 
-            }
-            
-            i = isDeleting ? i - 1 : i + 1;
-            typingTimeout = setTimeout(typeTerminalText, isDeleting ? 70 : speed);
-        }
-        
-        setTimeout(typeTerminalText, 1000);
-
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('animate');
-            });
-        }, { threshold: 0.05, rootMargin: "0px 0px -30px 0px" });
-
-        document.querySelectorAll('section, .project-card, .knowledge-card, .tech-tag, .contact-link').forEach(el => observer.observe(el));
-
-        document.querySelectorAll('.knowledge-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const rotateX = ((rect.height / 2) - (e.clientY - rect.top)) / 15;
-                const rotateY = ((e.clientX - rect.left) - (rect.width / 2)) / 15;
-                card.style.transform = `translateY(-5px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-            card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg)');
-        });
-        
-        setLanguage('pt');
-    </script>
+    <script src="js/script.js?v=20261109-skills-topics"></script>
 </body>
 </html>
